@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
-    public PowerBar powerBar;
+    //public PowerBar powerBar;
     public GameObject[] enemy;
     public GameObject playerCollision;
     public float time;
     public float clock = 5f;    //supposed to be for the slider to show time remaining for sharingan
     bool sharingan = false;
-    public Slider slider;
+    //public Slider slider;
 
     //for some reason clocks not being set as the slider value
     //not sure why
@@ -25,8 +25,8 @@ public class PowerUps : MonoBehaviour
 
     void Update()
     {
-        powerBar.SetMaxTime(clock);
-        powerBar.SetTime(clock);
+        //powerBar.SetMaxTime(clock);
+        //powerBar.SetTime(clock);
         //slider.value = clock;
         EnemyCount.powerUp.text = "No Power Up";
 
@@ -36,7 +36,6 @@ public class PowerUps : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.S)) {
             StartCoroutine(Sharingan());
-            //clock -= Time.deltaTime;
             //powerBar.SetTime(clock);
         }
         if(Input.GetKeyUp(KeyCode.S)) {
