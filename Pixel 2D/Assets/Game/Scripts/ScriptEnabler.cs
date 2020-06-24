@@ -41,6 +41,12 @@ public class ScriptEnabler : MonoBehaviour
             }
         }
     }
+    //Very stupid way of coding this
+    //Takes way too much time to make changes
+    //tried string editing to change it 
+    //Spoiler Alert: didnt work
+    //very inefficient
+    //sorry, Zuckerberg! I suck at coding lmao!
     void OnTriggerEnter2D(Collider2D other) {
 
         if(other.gameObject.name == "Enemy (Moving)") {
@@ -221,6 +227,9 @@ public class ScriptEnabler : MonoBehaviour
         }
     }
     void OnTriggerExit2D (Collider2D other) {
+        //this is the string editing i tried
+        //results showed that string did not change in the first place
+
         /*string enemyName = "Enemy (Moving) (1)";
         for(int i = 1; i <= enemy.Length; i++) {
             if(other.gameObject.name.Equals(enemyName)) {

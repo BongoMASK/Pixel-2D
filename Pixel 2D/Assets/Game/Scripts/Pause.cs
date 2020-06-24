@@ -22,11 +22,6 @@ public class Pause : MonoBehaviour
                 GamePause();
             }
         }
-        /*if(Movement.restartBool) {
-            if(isLost) {
-                GameLost();
-            }
-        }*/
     }
     public void GameResume() {
         pauseCanvas.SetActive(false);
@@ -35,14 +30,9 @@ public class Pause : MonoBehaviour
     }
     public void GamePause() {
         pauseCanvas.SetActive(true);        
-        Time.timeScale = 0f;
+        Time.timeScale = 0.2f;
         isPaused = true;
     }
-    /*public void GameLost() {
-        lostCanvas.SetActive(true);        
-        Time.timeScale = 0f;
-        isLost = true;
-    }*/
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;

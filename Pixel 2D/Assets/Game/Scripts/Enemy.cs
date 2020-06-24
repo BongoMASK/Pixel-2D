@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator shootBullet(Vector2 direction, float rotation) {
         yield return new WaitForSeconds(time);
-        GameObject b = Instantiate(bullet) as GameObject;   //here, b is a sunset of the bullet prefab
+        GameObject b = Instantiate(bullet) as GameObject;   //here, b is a subset of the bullet prefab
         b.transform.position = shooter.transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;

@@ -29,7 +29,6 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame 
     void Update() {
         //speed = playerSpeed;
         if(Input.GetKeyDown(KeyCode.Space)) {

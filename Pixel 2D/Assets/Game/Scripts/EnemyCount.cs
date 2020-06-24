@@ -16,14 +16,15 @@ public class EnemyCount : MonoBehaviour
     Text time;
     Text finish;
     public static Text powerUp;
-    // Start is called before the first frame update
+
+    //Replace textboxes with TextMesh Pro
+    
     void Start()
     {
         clock = 30;
         totalEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
@@ -43,7 +44,6 @@ public class EnemyCount : MonoBehaviour
             Debug.Log("Game won!");
             finishObject.SetActive(true);
             finish.text = "Finish";
-            //Just enable the finish gameobject
         }
     }
 }
