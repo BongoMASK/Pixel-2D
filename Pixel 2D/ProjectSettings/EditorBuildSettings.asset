@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game/Scenes/Start.unity
+    guid: aa26329c14d3e406c9c61ae950be695b
+  - enabled: 1
+    path: Assets/Game/Scenes/Controls.unity
+    guid: 590950cc8e8c64cdc81f67fc4069ceaf
+  - enabled: 1
+    path: Assets/Game/Scenes/LevelSelect.unity
+    guid: 7f8f314c610dc4524aeb1c7ddef0a246
+  - enabled: 1
+    path: Assets/Game/Scenes/Level 1.unity
+    guid: fd7af1384c904405d9818d874ebeaaa9
+  - enabled: 1
+    path: Assets/Game/Scenes/Claustrophobia.unity
+    guid: bbf35a57958a34c11b7166589af62c30
+  - enabled: 1
+    path: Assets/Game/Scenes/Survive.unity
+    guid: 9571a422065a1437093e9054cd29638e
+  - enabled: 1
+    path: Assets/Game/Scenes/Maze.unity
+    guid: 7121fd0321a854b14a246e8d0abbef68
+  - enabled: 1
+    path: Assets/Game/Scenes/Level 2.unity
+    guid: 05d1d926f045045b3a2be54f5cac532d
+  m_configObjects: {}
