@@ -26,7 +26,7 @@ public class EnemySpawn : MonoBehaviour
             waveNum.text = "Wave 1 / 3";
             time -= Time.deltaTime; 
             xPos1 = -9; yPos1 = 19;
-            xPos2 = -31; yPos2 = 6;
+            xPos2 = -29; yPos2 = 6;
             xPos3 = 9; yPos3 = 6;
             xPos4 = -9; yPos4 = -8;
             if(time <= 0) {
