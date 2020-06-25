@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class PowerBar : MonoBehaviour
 {
     public Slider slider;
-    public void SetMaxTime(float time) {
+    /*public void SetMaxTime(float time) {
         slider.maxValue = time;
         slider.value = time;
     }
     public void SetTime(float time) {
         slider.value = time;
+    }*/
+    void Start() {
+        slider.maxValue = 3f;
+        slider.value = 3f;
+
     }
 }

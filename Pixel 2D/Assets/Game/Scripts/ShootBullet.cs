@@ -23,10 +23,7 @@ public class ShootBullet : MonoBehaviour
         float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         direction.Normalize();
-        if(Input.GetMouseButtonDown(0)) {
-            shootBullet(direction, rotation);
-        }
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
             shootBullet(direction, rotation);
         }
     }

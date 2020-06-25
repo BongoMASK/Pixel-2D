@@ -423,11 +423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aaa859c656040c090f4bf486da6aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerBar: {fileID: 547656225}
-  enemy: []
   playerCollision: {fileID: 1646693756}
   time: 5
-  clock: 5
+  clock: 3
   slider: {fileID: 547656224}
 --- !u!4 &176800765
 Transform:
@@ -16385,12 +16383,12 @@ PrefabInstance:
     - target: {fileID: 5625937065647908517, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
         type: 3}
       propertyPath: m_Value
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5625937065647908517, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
         type: 3}
       propertyPath: m_MaxValue
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5625937065647908517, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
         type: 3}

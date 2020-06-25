@@ -15,16 +15,16 @@ public class ScriptEnabler : MonoBehaviour
     {
         transform.position = player.transform.position;
     }
-    
+
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Enemy")) {
-            other.GetComponent<Enemy>().enabled = true;
+            other.GetComponent<Enemy>().enabled = true;         //enabling Scripts
             other.GetComponent<EnemyMovement>().enabled = true;
         }
     }
     void OnTriggerExit2D (Collider2D other) {
         if(other.CompareTag("Enemy")) {
-            other.GetComponent<Enemy>().enabled = false;
+            other.GetComponent<Enemy>().enabled = false;            //enabling Scripts
             other.GetComponent<EnemyMovement>().enabled = false;
         }
     }

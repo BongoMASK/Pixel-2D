@@ -5,49 +5,42 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
-    //public PowerBar powerBar;
-    public GameObject[] enemy;
     public GameObject playerCollision;
-    public float time;
-    public float clock = 5f;    //supposed to be for the slider to show time remaining for sharingan
+    public float clock = 3f;    //supposed to be for the slider to show time remaining for sharingan
     bool sharingan = false;
-    //public Slider slider;
+    public Slider slider;
 
-    //for some reason clocks not being set as the slider value
-    //not sure why
     //initially it was kept such that after 5 real time seconds time scale would go back to one
     //the game is actually kinda hard and this would just make it a bit easier for people to play
     //plus, its cool as hell
-    void Start()
-    {   
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");       
+    void Start() {   
+        slider.maxValue = clock;
     }
 
-    void Update()
-    {
-        //powerBar.SetMaxTime(clock);
-        //powerBar.SetTime(clock);
-        //slider.value = clock;
+    void Update() {
+        slider.value = clock;
 
-        if(clock < 5) {
+        if(clock < 3 && !sharingan) {
             //clock += Time.deltaTime;
+            clock = clock + Time.deltaTime;
         }
-
-        if(Input.GetKeyDown(KeyCode.S)) {
+        //try to not make them shoot in slo - mo
+        //it will encourage people to make enemies kill each other
+        if(Input.GetKey(KeyCode.S)) {
             StartCoroutine(Sharingan());
-            //powerBar.SetTime(clock);
         }
-        if(Input.GetKeyUp(KeyCode.S)) {
+        if(clock <= 0 || Input.GetKeyUp(KeyCode.S)) {
             StopCoroutine(Sharingan());
             EnemyCount.powerUp.text = "No Power Up";
             Time.timeScale = 1f;
-            //sharingan = false;
+            sharingan = false;
         }
 
         if(Input.GetKeyDown(KeyCode.D)) {
             StartCoroutine(Disable());
         }
     }
+
     //Main idea - enemies will just give up on life when this is enabled
     //This works... in a different way...
     //Basically, since the bulletSpeed = 0, the bullet still spawns and then destroys the enemy itself...
@@ -58,13 +51,14 @@ public class PowerUps : MonoBehaviour
         Enemy.bulletSpeed = 0;
         EnemyCount.powerUp.text = "Disable";
 
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(5);
 
         Enemy.bulletSpeed = 30;
         EnemyMovement.enemySpeed = 200;
         EnemyCount.powerUp.text = "No Power Up";
         playerCollision.SetActive(true);
     }
+
     //Main Idea - become invisible to enemies
     //Make character (white area - transparent/black), (eyes - white), (apply white border as well)
     //Maybe, allow them to pass through enemies/walls (potentially OP)
@@ -73,12 +67,7 @@ public class PowerUps : MonoBehaviour
     IEnumerator Cloak() {
         yield return new WaitForSeconds(5);
     }
-    float SliderValue() {
-        if(!sharingan) {
-            clock -= Time.deltaTime;
-        }
-        return clock;
-    }
+
     //Slow down time
     //other name ideas - Kronos, Slo - mo
     //works fine, just has slider issue
@@ -87,11 +76,8 @@ public class PowerUps : MonoBehaviour
     IEnumerator Sharingan() {
         Time.timeScale = 0.6f;
         EnemyCount.powerUp.text = "Sharingan";
-        //sharingan = true;
         clock -= Time.deltaTime;
+        sharingan = true;
         yield return new WaitForSeconds(3);
-
-        Time.timeScale = 1f;
-        EnemyCount.powerUp.text = "No Power Up";
     }
 }
