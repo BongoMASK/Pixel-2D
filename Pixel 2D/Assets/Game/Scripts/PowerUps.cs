@@ -28,7 +28,6 @@ public class PowerUps : MonoBehaviour
         //powerBar.SetMaxTime(clock);
         //powerBar.SetTime(clock);
         //slider.value = clock;
-        EnemyCount.powerUp.text = "No Power Up";
 
         if(clock < 5) {
             //clock += Time.deltaTime;
