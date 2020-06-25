@@ -9,7 +9,8 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void Options() {
-
+        //Lmaoooo this has been empty since, I made this game
+        //add volume control, camera shake intensity, music, sounds, etc.
     }
     public void Quit() {
         Debug.Log("Quit!");

@@ -38,6 +38,7 @@ public class PowerUps : MonoBehaviour
             //powerBar.SetTime(clock);
         }
         if(Input.GetKeyUp(KeyCode.S)) {
+            StopCoroutine(Sharingan());
             EnemyCount.powerUp.text = "No Power Up";
             Time.timeScale = 1f;
             //sharingan = false;

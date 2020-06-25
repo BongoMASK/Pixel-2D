@@ -9,6 +9,8 @@ public class Collision : MonoBehaviour
     public static bool destroy = false;
     public float shakeFloat = 2f;
 
+    //There is a problem in the bullet. Its almost invisible as it is passing over text boxes 
+    //Fixing it with directional light should work
     void Update()
     {
         //animator.SetBool("Collide", destroy);
