@@ -31,15 +31,12 @@ public class Movement : MonoBehaviour
 
     void Update() {
         //speed = playerSpeed;
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
             Time.timeScale = 1f;
             Pause.Canvas.SetActive(false);
             Debug.Log("Start");
         }
-        if(Input.GetMouseButtonDown(0)) {
-            Time.timeScale = 1f;
-            Pause.Canvas.SetActive(false);
-        }
+
         animator.SetBool("Collide", restartBool);
 
         if(isLost) {

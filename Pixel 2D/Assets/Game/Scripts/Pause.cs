@@ -30,7 +30,7 @@ public class Pause : MonoBehaviour
     }
     public void GamePause() {
         pauseCanvas.SetActive(true);        
-        Time.timeScale = 0.2f;
+        Time.timeScale = 0f;
         isPaused = true;
     }
     public void Restart() {
