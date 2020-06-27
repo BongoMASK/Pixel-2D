@@ -29,7 +29,7 @@ public class EnemyCount : MonoBehaviour
     {
         currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         clock -= Time.deltaTime;    //Countdown
-        Debug.Log(currentEnemyCount + " / " + totalEnemyCount + " Left");
+        Debug.Log(currentEnemyCount + " / " + totalEnemyCount + " Enemies Left");
 
         time = timeText.GetComponent<Text>();
         score = scoreText.GetComponent<Text>(); 

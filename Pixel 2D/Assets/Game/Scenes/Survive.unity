@@ -281,7 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollision: {fileID: 206844105}
-  clock: 3
   slider: {fileID: 1250315580}
 --- !u!4 &151404618
 Transform:

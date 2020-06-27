@@ -6,9 +6,9 @@ public class EnemyMovement : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject player;
-    private Vector2 moveVelocity;
-    public static float enemySpeed = 200;
-    private Rigidbody2D rb;
+    public static Vector2 moveVelocity;
+    public float enemySpeed = 200;
+    public static Rigidbody2D rb;
     
     void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -24,6 +24,6 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector2 moveInput = player.transform.position - enemy.transform.position;
         moveVelocity = moveInput.normalized * enemySpeed;
-        rb.velocity = moveVelocity * Time.fixedDeltaTime; 
+        rb.velocity = moveVelocity * Time.fixedDeltaTime;
     }
 }

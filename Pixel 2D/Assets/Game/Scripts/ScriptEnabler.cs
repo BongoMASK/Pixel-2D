@@ -26,6 +26,7 @@ public class ScriptEnabler : MonoBehaviour
         if(other.CompareTag("Enemy")) {
             other.GetComponent<Enemy>().enabled = false;            //enabling Scripts
             other.GetComponent<EnemyMovement>().enabled = false;
+            EnemyMovement.moveVelocity = new Vector2 (0, 0);
         }
     }
 }

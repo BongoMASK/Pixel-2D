@@ -71,7 +71,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 2477860498788463514}
   - component: {fileID: 2477860498788463515}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player (Disable)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
