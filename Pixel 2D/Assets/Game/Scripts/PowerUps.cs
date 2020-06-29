@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
-    public GameObject playerCollision;
+    GameObject playerCollision;
     float clock = 2f;    //supposed to be for the slider to show time remaining for sharingan
     bool sharingan = false;
     float clockInit;
     public Slider slider;
     GameObject[] enemy;
+    EnemyMovement EnemyMovement;
 
     //initially it was kept such that after 5 real time seconds time scale would go back to one
     //the game is actually kinda hard and this would just make it a bit easier for people to play
@@ -19,6 +20,7 @@ public class PowerUps : MonoBehaviour
         clock = 2f;  
         clockInit = clock;
         slider.maxValue = 2f;
+        playerCollision = GameObject.FindGameObjectWithTag("Respawn");
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
@@ -57,7 +59,7 @@ public class PowerUps : MonoBehaviour
         int number = (int) (clock * 1.5f) + 1;
         EnemyCount.powerUp.text = "Disable" + number.ToString();
         clock -=Time.deltaTime;
-        EnemyMovement.rb.velocity = new Vector2(0, 0);
+        EnemyMovement.enemySpeed = 0;
         sharingan = true;
         yield return new WaitForSeconds(5);
     }

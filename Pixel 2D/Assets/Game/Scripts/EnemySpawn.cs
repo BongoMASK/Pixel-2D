@@ -6,16 +6,8 @@ using UnityEngine.UI;
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemy;
-    int xPos1;
-    int xPos2;
-    int xPos3;
-    int xPos4;
-    int yPos1;
-    int yPos2;
-    int yPos3;
-    int yPos4;
-    int enemyCount;
-    int totalEnemyCount = 0;
+    int xPos1, xPos2, xPos3, xPos4;
+    int yPos1, yPos2, yPos3, yPos4;
     float time = 0f;
     Text waveNum;
     public GameObject waveText;
@@ -43,8 +35,6 @@ public class EnemySpawn : MonoBehaviour
             if(EnemyCount.clock <= 11) {
                 waveNum.text = "Wave 3 / 3";
             }
-
-            Debug.Log(EnemyCount.currentEnemyCount + " / " + EnemyCount.totalEnemyCount);
         }
     }
 }

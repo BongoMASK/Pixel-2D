@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
         //add volume control, camera shake intensity, music, sounds, etc.
     }
     public void Quit() {
-        Debug.Log("Quit!");
         Application.Quit();
     }
     public void Restart() {

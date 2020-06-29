@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
     public GameObject bullet;
     public static float bulletSpeed = 30;
     Vector3 difference;
-    float rotation;
+    public static float rotation;
     public float fireRate = 1.0f;
     public float fireCountdown = 0.0f;
-    public GameObject enemy;
     public GameObject shooter;
     public float time;
 
@@ -21,10 +20,9 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        difference = player.transform.position - enemy.transform.position;
+        difference = player.transform.position - transform.position;
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;        
-        enemy.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
-
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         difference.Normalize();      //normalize is used to not increase speed by certain calculation errors
         if(fireCountdown <= 0.0f) {   //basically, normalize is x/|x|.
             StartCoroutine(shootBullet(difference, rotation));

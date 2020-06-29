@@ -29,7 +29,6 @@ public class EnemyCount : MonoBehaviour
     {
         currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         clock -= Time.deltaTime;    //Countdown
-        Debug.Log(currentEnemyCount + " / " + totalEnemyCount + " Enemies Left");
 
         time = timeText.GetComponent<Text>();
         score = scoreText.GetComponent<Text>(); 
@@ -41,7 +40,6 @@ public class EnemyCount : MonoBehaviour
 
         if(clock <= 0) {
             time.text = "0.000";
-            Debug.Log("Game won!");
             finishObject.SetActive(true);
             finish.text = "Finish";
         }

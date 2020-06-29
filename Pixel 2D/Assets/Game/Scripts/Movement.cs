@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     private Animator animator;
     public float time;
     public GameObject lostCanvas;
+    GameObject playerCollision;
 
     void Start() {
         Time.timeScale = 0f;
@@ -27,14 +28,15 @@ public class Movement : MonoBehaviour
         restartBool = false;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerCollision = GameObject.FindGameObjectWithTag("Respawn");
     }
 
     void Update() {
         //speed = playerSpeed;
+        playerCollision.transform.position = transform.position;
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
             Time.timeScale = 1f;
             Pause.Canvas.SetActive(false);
-            Debug.Log("Start");
         }
 
         animator.SetBool("Collide", restartBool);
@@ -76,7 +78,6 @@ public class Movement : MonoBehaviour
             speed = 0;
             restartBool = true;
             CameraShaker.Instance.ShakeOnce(8f, 8f, 0.1f, 1f);
-            Debug.Log("destroyed " + col.gameObject.name);
             StartCoroutine(explosion());         
         }
         if(col.CompareTag("Bullet")) {
@@ -84,7 +85,6 @@ public class Movement : MonoBehaviour
             restartBool = true;     
             CameraShaker.Instance.ShakeOnce(8f, 8f, 0.1f, 1f);
             Destroy(col.gameObject);
-            Debug.Log("destroyed " + col.gameObject.name);
             StartCoroutine(explosion());
         }
         if(col.CompareTag("Enemy")) {
@@ -92,7 +92,6 @@ public class Movement : MonoBehaviour
             restartBool = true;     
             CameraShaker.Instance.ShakeOnce(8f, 8f, 0.1f, 1f);
             Destroy(col.gameObject);
-            Debug.Log("destroyed " + col.gameObject.name);
             StartCoroutine(explosion());
         }
     }

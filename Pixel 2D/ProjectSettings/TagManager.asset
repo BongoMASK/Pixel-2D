@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyCollider
   - PlayerBullet
+  - Shooter
   layers:
   - Default
   - TransparentFX

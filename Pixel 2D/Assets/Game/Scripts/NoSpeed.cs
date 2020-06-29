@@ -13,7 +13,6 @@ public class NoSpeed : MonoBehaviour
      void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.name == "MouseObject") {
             Movement.playerSpeed = 0;
-            Debug.Log("collided");
         }
     }
     void OnTriggerExit2D(Collider2D other) {

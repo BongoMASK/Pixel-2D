@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject enemy;
-    public GameObject player;
-    public static Vector2 moveVelocity;
-    public float enemySpeed = 200;
-    public static Rigidbody2D rb;
+    GameObject player;
+    Vector2 moveVelocity;
+    public static float enemySpeed = 200;
+    Rigidbody2D rb;
+    public bool isTrigger;
+    float rotation;
     
     void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -16,14 +17,32 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        rb = enemy.GetComponent<Rigidbody2D>();
-        enemySpeed = 200f;
+        enemySpeed = 200;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        Vector2 moveInput = player.transform.position - enemy.transform.position;
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, Enemy.rotation);
+        Vector2 moveInput = player.transform.position - transform.position;
+        rotation = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;        
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         moveVelocity = moveInput.normalized * enemySpeed;
-        rb.velocity = moveVelocity * Time.fixedDeltaTime;
+        if(isTrigger) {                             //used boolean coz the movement doesnt update in OnTriggerEnter
+            rb.velocity = moveVelocity * Time.fixedDeltaTime;
+        }
+        
+    }
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Respawn")) {
+            isTrigger = true;
+            GetComponent<Enemy>().enabled = true;    
+        }
+    }
+    void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag("Respawn")) {
+            isTrigger = true;
+            GetComponent<Enemy>().enabled = false;    
+        }
     }
 }

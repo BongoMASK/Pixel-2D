@@ -516,6 +516,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 678862141368421639, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1066808768380412232, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -634,6 +639,16 @@ PrefabInstance:
     - target: {fileID: 1066808769094683881, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066808769094683881, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066808769094683881, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4670,12 +4685,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24d075a0f481146c58ee4c46bbe7d86e, type: 3}
---- !u!1 &440166226 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2403632353478732436, guid: 24d075a0f481146c58ee4c46bbe7d86e,
-    type: 3}
-  m_PrefabInstance: {fileID: 440166225}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458175514
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,8 +5081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aaa859c656040c090f4bf486da6aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCollision: {fileID: 440166226}
-  clock: 3
   slider: {fileID: 1618091233}
 --- !u!4 &882550919
 Transform:

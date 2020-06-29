@@ -11,6 +11,7 @@ public class Collision : MonoBehaviour
 
     //There is a problem in the bullet. Its almost invisible as it is passing over text boxes 
     //Fixing it with directional light should work
+    //fixed by changing colour might come back to this later
     void Update()
     {
         //animator.SetBool("Collide", destroy);
@@ -19,19 +20,16 @@ public class Collision : MonoBehaviour
         if(col.CompareTag("Bullet")) {
             Destroy (col.gameObject);
             CameraShaker.Instance.ShakeOnce(shakeFloat, shakeFloat, 0.1f, 1f);
-            Debug.Log("destroyed " + col.gameObject.name);
             destroy = true;
         }
         if(col.CompareTag("Enemy")) {
             Destroy (col.gameObject);
             CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
-            Debug.Log("destroyed " + col.gameObject.name);
             destroy = true;
         }
         if(col.CompareTag("PlayerBullet")) {
             Destroy (col.gameObject);
             CameraShaker.Instance.ShakeOnce(shakeFloat, shakeFloat, 0.1f, 1f);
-            Debug.Log("destroyed " + col.gameObject.name);
             destroy = true;
         }
     }

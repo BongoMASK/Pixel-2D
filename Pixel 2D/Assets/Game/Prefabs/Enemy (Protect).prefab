@@ -78,12 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950533e8b7e37433aa33a4cdbaabf0a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   bullet: {fileID: 6597152542741061507, guid: 7874198afdf694134b73d7ed6b491195, type: 3}
-  bulletSpeed: 30
   fireRate: 1
   fireCountdown: 0
-  enemy: {fileID: 7524937663740902491}
   shooter: {fileID: 3610804629800801046}
   time: 0.4
 --- !u!114 &5700557150975856819
@@ -98,9 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d006f827137194aac836396286344b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 7524937663740902491}
-  player: {fileID: 0}
-  enemySpeed: 200
+  isTrigger: 1
 --- !u!50 &7524937663740902469
 Rigidbody2D:
   serializedVersion: 4
