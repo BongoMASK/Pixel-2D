@@ -5082,6 +5082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1618091233}
+  animator: {fileID: 2020142642}
 --- !u!4 &882550919
 Transform:
   m_ObjectHideFlags: 0
@@ -7643,6 +7644,12 @@ PrefabInstance:
       objectReference: {fileID: 293539399}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d27102ad1127c4ba4830ec43f1372f00, type: 3}
+--- !u!95 &2020142642 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2477860498788463515, guid: d27102ad1127c4ba4830ec43f1372f00,
+    type: 3}
+  m_PrefabInstance: {fileID: 2020142641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2027965995
 GameObject:
   m_ObjectHideFlags: 0
