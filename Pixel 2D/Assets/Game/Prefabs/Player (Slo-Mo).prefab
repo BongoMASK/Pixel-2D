@@ -70,7 +70,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 2477860498788463514}
   - component: {fileID: 2477860498788463515}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player (Slo-Mo)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

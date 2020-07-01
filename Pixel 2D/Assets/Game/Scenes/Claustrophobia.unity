@@ -4340,7 +4340,7 @@ PrefabInstance:
     - target: {fileID: 2477860498788463489, guid: d27102ad1127c4ba4830ec43f1372f00,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: 'Player '
       objectReference: {fileID: 0}
     - target: {fileID: 2477860498788463516, guid: d27102ad1127c4ba4830ec43f1372f00,
         type: 3}
@@ -4402,11 +4402,6 @@ PrefabInstance:
       propertyPath: lostCanvas
       value: 
       objectReference: {fileID: 1699218638}
-    - target: {fileID: 2477860498788463518, guid: d27102ad1127c4ba4830ec43f1372f00,
-        type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d27102ad1127c4ba4830ec43f1372f00, type: 3}
 --- !u!4 &978664964 stripped
