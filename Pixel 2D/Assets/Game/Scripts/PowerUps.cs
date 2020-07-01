@@ -12,6 +12,7 @@ public class PowerUps : MonoBehaviour
     public Slider slider;
     GameObject[] enemy;
     EnemyMovement EnemyMovement;
+    public Animator animator;
 
     //initially it was kept such that after 5 real time seconds time scale would go back to one
     //the game is actually kinda hard and this would just make it a bit easier for people to play
@@ -26,6 +27,7 @@ public class PowerUps : MonoBehaviour
 
     void Update() {
         slider.value = clock;
+        animator.SetBool("sharingan", sharingan);
 
         if(clock < clockInit && !sharingan) {
             clock = clock + (Time.deltaTime * 0.4f);
@@ -35,19 +37,18 @@ public class PowerUps : MonoBehaviour
         if(Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) {
             StartCoroutine(Sharingan());
         }
+        if(Input.GetKey(KeyCode.D) || Input.GetMouseButton(2)) {
+            StartCoroutine(Cloak());
+        }
         if(clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1) || 
           Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)) {
+            StopCoroutine(Cloak());
             StopCoroutine(Sharingan());
-            StopCoroutine(Disable());
+            sharingan = false;
+            playerCollision.SetActive(true);
             EnemyCount.powerUp.text = "No Power Up";
             Time.timeScale = 1f;
             //EnemyMovement.rb.velocity = EnemyMovement.moveVelocity;
-            playerCollision.SetActive(true);
-            sharingan = false;
-        }
-
-        if(Input.GetKey(KeyCode.D) || Input.GetMouseButton(2)) {
-            StartCoroutine(Cloak());
         }
     }
 
@@ -57,7 +58,7 @@ public class PowerUps : MonoBehaviour
     //plus, the bullet stays there and never moves again, which if used wrongly is game-breaking
     IEnumerator Disable() {
         int number = (int) (clock * 1.5f) + 1;
-        EnemyCount.powerUp.text = "Disable" + number.ToString();
+        EnemyCount.powerUp.text = "Disable " + number.ToString();
         clock -=Time.deltaTime;
         EnemyMovement.enemySpeed = 0;
         sharingan = true;
@@ -70,10 +71,11 @@ public class PowerUps : MonoBehaviour
     //not sure how its different...
     IEnumerator Cloak() {
         playerCollision.SetActive(false);
-        int number = (int) (clock * 1.5f) + 1;
-        EnemyCount.powerUp.text = "Cloak" + number.ToString();
+        int number = (int) (clockInit) + 1;
+        EnemyCount.powerUp.text = "Cloak  " + number.ToString();
         clock -= Time.deltaTime;
-        yield return new WaitForSeconds(3);
+        sharingan = true;
+        yield return new WaitForSeconds(clockInit);
     }
     //Main Idea - make certain enemies good, makes other enemies target that enemy
     //Number of people touching playerCollision will be made good.
