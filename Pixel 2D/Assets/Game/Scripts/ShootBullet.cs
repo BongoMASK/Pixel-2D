@@ -8,6 +8,7 @@ public class ShootBullet : MonoBehaviour
     public GameObject player;
     public GameObject shootingPoint;
     public float bulletSpeed = 30.0f;
+    int enemiesKilled;
     
     void Update()
     {
@@ -33,5 +34,6 @@ public class ShootBullet : MonoBehaviour
         b.transform.position = shootingPoint.transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        enemiesKilled = enemiesKilled + 1;
     }
 }

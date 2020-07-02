@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 2477860498788463514}
   - component: {fileID: 2477860498788463515}
   m_Layer: 0
-  m_Name: Player (Disable)
+  m_Name: Player (Cloak)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

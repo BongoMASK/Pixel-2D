@@ -10,7 +10,6 @@ public class PowerUps : MonoBehaviour
     bool sharingan = false;
     float clockInit;
     public Slider slider;
-    GameObject[] enemy;
     EnemyMovement EnemyMovement;
     public Animator animator;
 
@@ -22,24 +21,24 @@ public class PowerUps : MonoBehaviour
         clockInit = clock;
         slider.maxValue = 2f;
         playerCollision = GameObject.FindGameObjectWithTag("Respawn");
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     void Update() {
         slider.value = clock;
         animator.SetBool("sharingan", sharingan);
 
-        if(clock < clockInit && !sharingan) {
-            clock = clock + (Time.deltaTime * 0.4f);
-        }
+        ClockRegen();
+
         //try to not make them shoot in slo - mo
         //it will encourage people to make enemies kill each other
         if(Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) {
             StartCoroutine(Sharingan());
-        }
+        } 
+
         if(Input.GetKey(KeyCode.D) || Input.GetMouseButton(2)) {
             StartCoroutine(Cloak());
         }
+
         if(clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1) || 
           Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)) {
             StopCoroutine(Cloak());
@@ -48,7 +47,6 @@ public class PowerUps : MonoBehaviour
             playerCollision.SetActive(true);
             EnemyCount.powerUp.text = "No Power Up";
             Time.timeScale = 1f;
-            //EnemyMovement.rb.velocity = EnemyMovement.moveVelocity;
         }
     }
 
@@ -92,5 +90,10 @@ public class PowerUps : MonoBehaviour
         clock -= Time.deltaTime;
         sharingan = true;
         yield return new WaitForSeconds(clockInit);
+    }
+    void ClockRegen() {
+        if(clock < clockInit && !sharingan) {
+            clock = clock + (Time.deltaTime * 0.4f);
+        }
     }
 }

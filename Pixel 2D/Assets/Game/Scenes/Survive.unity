@@ -2225,6 +2225,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1066808769094683881, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.33007812
+      objectReference: {fileID: 0}
     - target: {fileID: 5625937065647908517, guid: 7f55dd4d8f2a8420fba8a5751dd63daf,
         type: 3}
       propertyPath: m_HandleRect
@@ -4397,7 +4402,7 @@ PrefabInstance:
     - target: {fileID: 8163432441295623236, guid: 774ce4817a9844b60bbfa2dd1a1f71c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8163432441295623236, guid: 774ce4817a9844b60bbfa2dd1a1f71c1,
         type: 3}

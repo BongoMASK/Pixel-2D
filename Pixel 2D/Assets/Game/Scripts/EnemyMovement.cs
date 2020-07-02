@@ -23,16 +23,9 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*if(Input.GetKey(KeyCode.D)) {
-            for(float i = 0; i <= 3; i += Time.deltaTime) {
-                isTrigger = false;
-                GetComponent<Enemy>().enabled = false;
-            }
-        }
-        if(Input.GetKeyUp(KeyCode.D)) {
-            isTrigger = true;
-
-        }*/
+        Move();
+    }
+    void Move() {
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, Enemy.rotation);
         Vector2 moveInput = player.transform.position - transform.position;
         rotation = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;        
@@ -44,7 +37,6 @@ public class EnemyMovement : MonoBehaviour
         else {
             rb.velocity = new Vector2(0,0);
         }
-        
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Respawn")) {
