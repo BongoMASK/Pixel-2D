@@ -4116,6 +4116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be02e43f866d44e58268253b90c4006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroy: 0
+  shakeFloat: 0
+  animator: {fileID: 0}
+  time: 0.5
 --- !u!1001 &848553224
 PrefabInstance:
   m_ObjectHideFlags: 0
