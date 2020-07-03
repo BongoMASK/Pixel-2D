@@ -35,5 +35,6 @@ public class ShootBullet : MonoBehaviour
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         enemiesKilled = enemiesKilled + 1;
+        Debug.Log(enemiesKilled);
     }
 }
