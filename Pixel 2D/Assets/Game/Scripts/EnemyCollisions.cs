@@ -7,12 +7,14 @@ public class EnemyCollisions : MonoBehaviour
 {
     ParticleSystem particle;
     SpriteRenderer sr;
+    public GameObject sprites;
     BoxCollider2D bc;
     Enemy enemy;
     EnemyMovement enemyMovement;
 
     void Awake()
     {   
+        sprites.SetActive(true);
         particle = GetComponentInChildren<ParticleSystem>();
         sr = GetComponentInChildren<SpriteRenderer>();
         bc = GetComponentInChildren<BoxCollider2D>();
@@ -26,6 +28,7 @@ public class EnemyCollisions : MonoBehaviour
         }
     }
     IEnumerator Destruct() {
+        sprites.SetActive(false);
         sr.enabled = false;
         bc.enabled = false;
         enemyMovement.enabled = false;

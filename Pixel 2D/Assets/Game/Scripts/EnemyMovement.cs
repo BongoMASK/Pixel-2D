@@ -8,11 +8,13 @@ public class EnemyMovement : MonoBehaviour
     Vector2 moveVelocity;
     public static float enemySpeed = 200;
     Rigidbody2D rb;
-    public bool isTrigger;
+    public bool isTrigger, isTriggered;
     float rotation;
+    public Animator animator;
     
     void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -24,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        animator.SetBool("isTrigger", isTrigger);
     }
     void Move() {
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, Enemy.rotation);
@@ -41,12 +44,14 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Respawn")) {
             isTrigger = true;
+            isTriggered = true;
             GetComponent<Enemy>().enabled = true;    
         }
     }
     void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("Respawn")) {
             isTrigger = true;
+            isTriggered = false;
             GetComponent<Enemy>().enabled = false;    
         }
     }

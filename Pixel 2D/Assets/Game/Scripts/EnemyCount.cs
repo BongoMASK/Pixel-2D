@@ -24,7 +24,6 @@ public class EnemyCount : MonoBehaviour
         clock = 30;
         totalEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
-
     void Update()
     {
         currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;

@@ -8,6 +8,7 @@ public class Pause : MonoBehaviour
     public static bool isPaused = false;
     public static GameObject Canvas;
     public GameObject pauseCanvas;
+    public GameObject optionCanvas;
 
     void Start() {
         Canvas = pauseCanvas;        
@@ -24,11 +25,13 @@ public class Pause : MonoBehaviour
         }
     }
     public void GameResume() {
+        optionCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
     public void GamePause() {
+        optionCanvas.SetActive(false);
         pauseCanvas.SetActive(true);        
         Time.timeScale = 0f;
         isPaused = true;
@@ -46,5 +49,11 @@ public class Pause : MonoBehaviour
     }
     public void MainMenu() {
         SceneManager.LoadScene("Start");
+    }
+    public void Options() {
+        Time.timeScale = 0f;
+        optionCanvas.SetActive(true);
+        pauseCanvas.SetActive(false);
+        isPaused = true;
     }
 }

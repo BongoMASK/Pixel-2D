@@ -11,12 +11,15 @@ public class Enemy : MonoBehaviour
     public static float rotation;
     public float fireCountdown = 0.4f;
     public GameObject shooter;
+    bool isShoot;
 
     void Awake() {
+        isShoot = false;
         player = GameObject.FindGameObjectWithTag("Player");
         bulletSpeed = 25f;
     }
     void Update() {  
+        //EnemyMovement.animator.SetBool("isShoot", isShoot);
         difference = player.transform.position - transform.position;
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;        
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
@@ -24,6 +27,12 @@ public class Enemy : MonoBehaviour
         if(fireCountdown <= -0.4f) {  //basically, normalize is x/|x|.
             shootBullet(difference, rotation);
             fireCountdown = 1f;
+        }
+        if(fireCountdown <= 0 && fireCountdown >= -0.4) {
+            isShoot = true;
+        }
+        else {
+            isShoot = false;
         }
 
         fireCountdown -= Time.deltaTime;
