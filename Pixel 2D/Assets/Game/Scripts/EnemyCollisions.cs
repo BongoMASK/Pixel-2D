@@ -24,13 +24,13 @@ public class EnemyCollisions : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("PlayerBullet")) {
-            GameManager.data = GameManager.data + 200; 
+            GameManager.data = GameManager.data + GameManager.MoneyDropped; 
         }
         if(other.CompareTag("Wall")) {
-            GameManager.data = GameManager.data + 50;
+            GameManager.data = GameManager.data + (GameManager.MoneyDropped / 4);
         }
         if(other.CompareTag("Bullet")) {
-            GameManager.data = GameManager.data + 300;
+            GameManager.data = GameManager.data + GameManager.MoneyDropped + 100;
         }
         //give data for collateral kills, too - 400, enemy collateral - 500
         if(other.CompareTag("PlayerBullet") || other.CompareTag("Bullet") || other.CompareTag("Wall")) {

@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     ParticleSystem particle;    SpriteRenderer sr;      BoxCollider2D bc;
 
     void Awake() {
+        health = GameManager.health;
         data = GameManager.data;
         start = false;
         particle = GetComponentInChildren<ParticleSystem>();
@@ -26,9 +27,8 @@ public class Movement : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
     }
     void Start() {
-        health = 100;
         Time.timeScale = 0f;
-
+        GameManager.health = GameManager.totalHealth;
         lostCanvas.SetActive(false);
         restartBool = false;
 
@@ -51,24 +51,15 @@ public class Movement : MonoBehaviour
     void FixedUpdate() {
 
         Move();
-        if(health < 100) {
-            health = health + 1;
-        }
-        if(health <= 0) {
+
+        if(GameManager.health <= 0) {
             StartCoroutine(Explosion());
-        }  
+        }
     }   
     void OnTriggerEnter2D(Collider2D col) {
 
         if(col.CompareTag("Bullet")) {
-            if(difficult) {
-                //easy difficulty
-                hit();
-            }
-            else {
-                //hard difficulty
-                StartCoroutine(Explosion());
-            }
+            hit();   
         }
         if(col.CompareTag("Wall") || col.CompareTag("Enemy")) {
             StartCoroutine(Explosion());
@@ -80,7 +71,7 @@ public class Movement : MonoBehaviour
         }
     }
     void hit() {
-        health = health - 25;
+        GameManager.health = GameManager.health - 25;
     }
     public void Move() {
         playerPos = new Vector2(transform.position.x, transform.position.y);
@@ -95,7 +86,6 @@ public class Movement : MonoBehaviour
         Time.timeScale = 0f;
     }
     IEnumerator Explosion() {
-        GameManager.deaths = GameManager.deaths + 1;
         Debug.Log("deaths: " + GameManager.deaths);
         particle.Play();
         sr.enabled = false;
@@ -107,7 +97,8 @@ public class Movement : MonoBehaviour
         Time.timeScale = 0.2f;
 
         yield return new WaitForSeconds(0.3f);
-        GameManager.data = data;
         GameLost();        
+        GameManager.deaths = GameManager.deaths + 1;
+        GameManager.data = data;
     }
 }
