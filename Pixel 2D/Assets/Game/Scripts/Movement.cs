@@ -12,13 +12,14 @@ public class Movement : MonoBehaviour
     public static bool restartBool;
     public static bool difficult = false;
     bool start;
-    public int health;
+    public int health, data;
     private Rigidbody2D rb;
     private Vector2 moveVelocity4, mousePos, playerPos;
     GameObject playerCollision;
     ParticleSystem particle;    SpriteRenderer sr;      BoxCollider2D bc;
 
     void Awake() {
+        data = GameManager.data;
         start = false;
         particle = GetComponentInChildren<ParticleSystem>();
         sr = GetComponent<SpriteRenderer>();
@@ -72,6 +73,11 @@ public class Movement : MonoBehaviour
         if(col.CompareTag("Wall") || col.CompareTag("Enemy")) {
             StartCoroutine(Explosion());
         }
+        if(col.CompareTag("Data")) {
+            Destroy(col.gameObject);
+            GameManager.data = GameManager.data + 1;
+            Debug.Log("data is: " + GameManager.data);
+        }
     }
     void hit() {
         health = health - 25;
@@ -89,14 +95,19 @@ public class Movement : MonoBehaviour
         Time.timeScale = 0f;
     }
     IEnumerator Explosion() {
+        GameManager.deaths = GameManager.deaths + 1;
+        Debug.Log("deaths: " + GameManager.deaths);
         particle.Play();
         sr.enabled = false;
         bc.enabled = false;
         speed = 0;
         restartBool = true;
-        CameraShaker.Instance.ShakeOnce(8f, 8f, 0.1f, 1f); 
+        CameraShaker.Instance.ShakeOnce(8f, 8f, 0.1f, 1f);
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0.2f;
 
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.3f);
+        GameManager.data = data;
         GameLost();        
     }
 }

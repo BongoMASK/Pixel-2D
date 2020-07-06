@@ -362,6 +362,7 @@ MonoBehaviour:
   time: 1
   lostCanvas: {fileID: 0}
   health: 0
+  data: 0
 --- !u!114 &1652470083430926985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +424,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 1.7}
+  m_Size: {x: 1.4, y: 1.4}
   m_EdgeRadius: 0
 --- !u!95 &2477860498788463515
 Animator:

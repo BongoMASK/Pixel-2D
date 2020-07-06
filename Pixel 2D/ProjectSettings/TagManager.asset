@@ -11,6 +11,7 @@ TagManager:
   - PlayerBullet
   - Shooter
   - PlayerProtect
+  - Data
   layers:
   - Default
   - TransparentFX

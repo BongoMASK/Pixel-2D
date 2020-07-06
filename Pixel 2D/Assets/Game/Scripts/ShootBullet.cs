@@ -34,7 +34,12 @@ public class ShootBullet : MonoBehaviour
         b.transform.position = shootingPoint.transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        enemiesKilled = enemiesKilled + 1;
-        Debug.Log(enemiesKilled);
+
+    }
+    void OnTriggerEnter2D(Collider2D col) {
+        if(col.CompareTag("Enemy")) {
+            GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
+            Debug.Log("collateral Kill: X" + GameManager.enemiesKilled);
+        }
     }
 }

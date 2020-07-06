@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6597152542741061507, guid: 7874198afdf694134b73d7ed6b491195, type: 3}
-  bulletSpeed: 25
+  bulletSpeed: 15
   fireCountdown: 0.4
   shooter: {fileID: 3781507620259432696}
 --- !u!114 &5294764272266070877
@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrigger: 0
+  isTriggered: 0
   animator: {fileID: 5497200766904402016}
 --- !u!50 &7929511165671516075
 Rigidbody2D:

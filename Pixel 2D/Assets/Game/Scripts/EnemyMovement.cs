@@ -31,11 +31,11 @@ public class EnemyMovement : MonoBehaviour
     void Move() {
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, Enemy.rotation);
         Vector2 moveInput = player.transform.position - transform.position;
-        rotation = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;        
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         moveVelocity = moveInput.normalized * enemySpeed;
         if(isTrigger) {                             //used boolean coz the movement doesnt update in OnTriggerEnter
             rb.velocity = moveVelocity * Time.fixedDeltaTime;
+            rotation = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;        
         }
         else {
             rb.velocity = new Vector2(0,0);

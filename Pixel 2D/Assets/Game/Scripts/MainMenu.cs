@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Options() {
         SceneManager.LoadScene("Options");
-        //Lmaoooo this has been empty since, I made this game
+        //Lmaoooo this has been empty since I made this game
         //add volume control, camera shake intensity, music, sounds, difficulty etc.
     }
     public void difficulty() {

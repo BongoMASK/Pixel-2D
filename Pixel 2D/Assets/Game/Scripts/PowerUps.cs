@@ -51,6 +51,7 @@ public class PowerUps : MonoBehaviour
     }
 
     //Main idea - enemies will shoot but not move
+    //the other way will make the protect powerup useless
     //This works... in a different way...
     //Basically, since the bulletSpeed = 0, the bullet still spawns and then destroys the enemy itself...
     //plus, the bullet stays there and never moves again, which if used wrongly is game-breaking

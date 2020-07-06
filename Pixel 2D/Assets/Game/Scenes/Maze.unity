@@ -14299,6 +14299,11 @@ PrefabInstance:
       propertyPath: m_ChunkCullingBounds.y
       value: 0.625
       objectReference: {fileID: 0}
+    - target: {fileID: 6458830108080476948, guid: 774ce4817a9844b60bbfa2dd1a1f71c1,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8163432441295623236, guid: 774ce4817a9844b60bbfa2dd1a1f71c1,
         type: 3}
       propertyPath: m_LocalPosition.x

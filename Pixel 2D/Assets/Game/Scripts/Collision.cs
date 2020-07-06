@@ -25,6 +25,7 @@ public class Collision : MonoBehaviour
         }
     }
     IEnumerator Destruct(GameObject collider) {
+        GameManager.enemiesKilled = 0;
         sr.enabled = false;
         bc.enabled = false;
         particle.Play();

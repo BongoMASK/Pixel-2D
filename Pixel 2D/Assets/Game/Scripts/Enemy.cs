@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         //EnemyMovement.animator.SetBool("isShoot", isShoot);
         difference = player.transform.position - transform.position;
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;        
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation - 15);
         difference.Normalize();      //normalize is used to not increase speed by certain calculation errors
         if(fireCountdown <= -0.4f) {  //basically, normalize is x/|x|.
             shootBullet(difference, rotation);
