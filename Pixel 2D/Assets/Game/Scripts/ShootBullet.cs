@@ -9,9 +9,15 @@ public class ShootBullet : MonoBehaviour
     public GameObject shootingPoint;
     public float bulletSpeed = 30.0f;
     int enemiesKilled;
+    Animator animator;
+    bool isShoot = false;
     
+    void Awake() {
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
+        animator.SetBool("isShoot", isShoot);
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
 
@@ -25,16 +31,20 @@ public class ShootBullet : MonoBehaviour
         player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         direction.Normalize();
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
-            shootBullet(direction, rotation);
+            StartCoroutine(shootBullet(direction, rotation));
+
         }
     }
-    void shootBullet(Vector2 direction, float rotation) {
+    IEnumerator shootBullet(Vector2 direction, float rotation) {
         //yield return new WaitForSeconds(time);
         GameObject b = Instantiate(bullet) as GameObject;
         b.transform.position = shootingPoint.transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
+        isShoot = true;
+        
+        yield return new WaitForSeconds(0.5f);
+        isShoot = false;
     }
     void OnTriggerEnter2D(Collider2D col) {
         if(col.CompareTag("Enemy")) {

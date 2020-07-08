@@ -7,7 +7,7 @@ public class PowerUps : MonoBehaviour
 {
     GameObject playerCollision;
     float clock = 2f;    //supposed to be for the slider to show time remaining for sharingan
-    bool sharingan = false;
+    public static bool sharingan = false;
     float clockInit;
     public Slider slider;
     EnemyMovement EnemyMovement;

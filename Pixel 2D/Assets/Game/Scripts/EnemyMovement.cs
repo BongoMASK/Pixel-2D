@@ -8,7 +8,8 @@ public class EnemyMovement : MonoBehaviour
     Vector2 moveVelocity;
     public static float enemySpeed = 200;
     Rigidbody2D rb;
-    public bool isTrigger, isTriggered;
+    public bool isTrigger;
+    bool isTriggered;
     float rotation;
     public Animator animator;
     

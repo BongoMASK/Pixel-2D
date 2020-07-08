@@ -27,6 +27,7 @@ public class Pause : MonoBehaviour
     public void GameResume() {
         optionCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
+        GameManager.canvas.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
