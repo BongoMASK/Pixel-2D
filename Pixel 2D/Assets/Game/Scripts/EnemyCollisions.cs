@@ -53,7 +53,7 @@ public class EnemyCollisions : MonoBehaviour
         enemyMovement.enabled = false;
         enemy.enabled = false;
         particle.Play();
-        CameraShaker.Instance.ShakeOnce(4f, 3f, 0.3f, 1f);
+        CameraShaker.Instance.ShakeOnce(3f, 8f, 0.3f, 1f);
         yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0.5f;
 

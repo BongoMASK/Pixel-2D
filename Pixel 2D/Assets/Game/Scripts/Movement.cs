@@ -111,7 +111,7 @@ public class Movement : MonoBehaviour
         bc.enabled = false;
         speed = 0;
         restartBool = true;
-        CameraShaker.Instance.ShakeOnce(4f, 2.5f, 0.1f, 1f);
+        CameraShaker.Instance.ShakeOnce(4f, 12f, 0.1f, 1f);
         //CameraShaker.Instance.ShakeOnce( );
         yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0.2f;

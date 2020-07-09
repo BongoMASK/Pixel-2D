@@ -399,6 +399,11 @@ MonoBehaviour:
   electricity: {fileID: 0}
   health: 0
   data: 0
+  MoneyDropped: 0
+  powerUpTime: 0
+  healthData: 0
+  moneyDroppedData: 0
+  powerUpTimeData: 0
   particle1: {fileID: 0}
 --- !u!114 &1652470083430926985
 MonoBehaviour:
