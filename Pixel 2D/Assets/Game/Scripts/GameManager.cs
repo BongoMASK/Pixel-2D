@@ -18,9 +18,8 @@ public class GameManager : MonoBehaviour
     //Text
     Text currentHealth, currentPowerUpTime, currentMoneyDrop, currentHealthData;
     Text currentPowerUpTimeData, currentMoneyDropData, currentData;
-    public GameObject dataReceived1;
     public GameObject healthText, powerUpText, MoneyDropText, healthDataText;
-    public GameObject moneyDroppedDataText, powerUpTimeDataText, dataText;
+    public GameObject moneyDroppedDataText, powerUpTimeDataText, dataText, dataReceived1;
     public static Text dataReceivedEnemy;
     public static GameObject dataReceived;
 

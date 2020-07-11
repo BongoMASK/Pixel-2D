@@ -29,7 +29,7 @@ namespace GameServer
         private static void TcpConnectCallback(IAsyncResult _result) {
             TcpClient _client = tcpListener.EndAcceptTcpClient(_result);
             tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
-            Console.WriteLine($"Icoming connection from {_client.Client.RemoteEndPoint}...");
+            Console.WriteLine($"Incoming connection from {_client.Client.RemoteEndPoint}...");
 
             for(int i = 1; i <= MaxPLayers; i++) {
                 if(clients[i].tcp.socket == null) {
