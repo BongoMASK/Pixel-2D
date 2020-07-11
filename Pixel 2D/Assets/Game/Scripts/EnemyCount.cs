@@ -9,13 +9,15 @@ public class EnemyCount : MonoBehaviour
     public static float clock = 30;
     public GameObject scoreText;
     public GameObject timeText;
-    public GameObject finishText;
+    public GameObject finishText, healthText;
     public GameObject finishObject;
     public GameObject powerUpText;
     Text score;
     Text time;
     Text finish;
+    Text health;
     public static Text powerUp;
+    public Slider slider;
 
     //Replace textboxes with TextMesh Pro
     
@@ -26,6 +28,9 @@ public class EnemyCount : MonoBehaviour
     }
     void Update()
     {
+        slider.maxValue = GameManager.totalHealth;
+        slider.value = GameManager.health;
+        
         currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         clock -= Time.deltaTime;    //Countdown
 
@@ -33,9 +38,11 @@ public class EnemyCount : MonoBehaviour
         score = scoreText.GetComponent<Text>(); 
         finish = finishText.GetComponent<Text>();
         powerUp = powerUpText.GetComponent<Text>();
+        health = healthText.GetComponent<Text>();
 
         time.text = clock.ToString();                   //placed in this order because this value updates last
-        score.text = currentEnemyCount.ToString() + " / " + totalEnemyCount.ToString() + " Left";   
+        score.text = currentEnemyCount.ToString() + " / " + totalEnemyCount.ToString() + " Left"; 
+        health.text = GameManager.health + " / " + GameManager.totalHealth;  
 
         if(clock <= 0) {
             time.text = "0.000";

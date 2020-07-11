@@ -8,14 +8,14 @@ public class Movement : MonoBehaviour
 {
     public static float playerSpeed = 725f;
     public float speed = 725f, time;
-    public GameObject lostCanvas, sr, powerParticle, spriteLight, electricity;
+    public GameObject lostCanvas, sr, spriteLight;
     public static bool restartBool, difficult = false;
     bool start;
-    public int health, data, MoneyDropped, powerUpTime;
-    public int healthData, moneyDroppedData, powerUpTimeData;
+    int health, data, MoneyDropped, powerUpTime;
+    int healthData, moneyDroppedData, powerUpTimeData;
     private Rigidbody2D rb;
     private Vector2 moveVelocity4, mousePos, playerPos;
-    GameObject playerCollision;     public ParticleSystem particle1;
+    GameObject playerCollision;
     ParticleSystem particle;      BoxCollider2D bc;     
 
     void Awake() {
@@ -111,7 +111,7 @@ public class Movement : MonoBehaviour
         bc.enabled = false;
         speed = 0;
         restartBool = true;
-        CameraShaker.Instance.ShakeOnce(4f, 12f, 0.1f, 1f);
+        CameraShaker.Instance.ShakeOnce(2f, 20f, 0.1f, 1f);
         //CameraShaker.Instance.ShakeOnce( );
         yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0.2f;

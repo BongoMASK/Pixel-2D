@@ -965,8 +965,13 @@ PrefabInstance:
     - target: {fileID: 958773437365619296, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: m_LightProbeUsage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619296, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60c4f99d55be7ee44a8521d1da5a59c6, type: 2}
     - target: {fileID: 958773437365619297, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: m_Name
@@ -1090,11 +1095,26 @@ PrefabInstance:
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: TrailModule.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: TrailModule.widthOverTrail.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: TrailModule.lifetime.scalar
       value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []

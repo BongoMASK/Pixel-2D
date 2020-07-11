@@ -24,28 +24,23 @@ public class EnemyCollisions : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("PlayerBullet")) {
-            GameManager.data = GameManager.data + (int) GameManager.MoneyDropped; 
+            StartCoroutine(Destruct(1f));
         }
         if(other.CompareTag("Wall")) {
-            GameManager.data = GameManager.data + (int) (GameManager.MoneyDropped / 4);
+            StartCoroutine(Destruct(0.25f));
         }
         if(other.CompareTag("Bullet")) {
-            GameManager.data = GameManager.data + (int) (GameManager.MoneyDropped * 1.5f);
+            StartCoroutine(Destruct(1.5f));
         }
         //give data for collateral kills, too - 400, enemy collateral - 500
-        if(other.CompareTag("PlayerBullet") || other.CompareTag("Bullet") || other.CompareTag("Wall")) {
-            StartCoroutine(Destruct());
-            Debug.Log("data is: " + GameManager.data);
-        }
+        
     }
-    IEnumerator dataReceived(float multiplier) {
+    void dataReceived(float multiplier) {
+        GameManager.data = GameManager.data + (int) (GameManager.MoneyDropped * multiplier); 
         
-        
-        yield return new WaitForSeconds(1);
-        Destroy(GameManager.dataReceived);
     }
-    IEnumerator Destruct() {
-        
+    IEnumerator Destruct(float multiplier) {
+        GameManager.data = GameManager.data + (int) (GameManager.MoneyDropped * multiplier); 
         spriteLight.SetActive(false);
         sprites.SetActive(false);
         sr.enabled = false;
@@ -53,7 +48,7 @@ public class EnemyCollisions : MonoBehaviour
         enemyMovement.enabled = false;
         enemy.enabled = false;
         particle.Play();
-        CameraShaker.Instance.ShakeOnce(3f, 8f, 0.3f, 1f);
+        CameraShaker.Instance.ShakeOnce(3f, 12f, 0.3f, 1f);
         yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0.5f;
 
