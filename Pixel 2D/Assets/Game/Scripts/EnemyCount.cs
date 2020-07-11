@@ -41,8 +41,8 @@ public class EnemyCount : MonoBehaviour
         health = healthText.GetComponent<Text>();
 
         time.text = clock.ToString();                   //placed in this order because this value updates last
-        score.text = currentEnemyCount.ToString() + " / " + totalEnemyCount.ToString() + " Left"; 
-        health.text = GameManager.health + " / " + GameManager.totalHealth;  
+        score.text = currentEnemyCount.ToString() + " / " + totalEnemyCount.ToString() + " Enemies Left"; 
+        health.text = "Health: " + GameManager.health + " / " + GameManager.totalHealth;  
 
         if(clock <= 0) {
             time.text = "0.000";

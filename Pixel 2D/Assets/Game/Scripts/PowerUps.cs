@@ -45,7 +45,7 @@ public class PowerUps : MonoBehaviour
             StopCoroutine(Sharingan());
             sharingan = false;
             playerCollision.SetActive(true);
-            EnemyCount.powerUp.text = "No Power Up";
+            EnemyCount.powerUp.text = "Slo-Mo";
             Time.timeScale = 1f;
         }
     }
@@ -87,7 +87,7 @@ public class PowerUps : MonoBehaviour
     IEnumerator Sharingan() {
         Time.timeScale = 0.6f;
         int number = (int) (clock * 1.5f) + 1;
-        EnemyCount.powerUp.text = "Sharingan " + number.ToString();
+        EnemyCount.powerUp.text = "Slo-Mo " + number.ToString();
         clock -= Time.deltaTime;
         sharingan = true;
         yield return new WaitForSeconds(clockInit);

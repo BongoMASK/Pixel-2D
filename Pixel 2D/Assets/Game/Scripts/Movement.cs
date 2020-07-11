@@ -104,6 +104,7 @@ public class Movement : MonoBehaviour
     }
     IEnumerator Explosion() {
         Debug.Log("deaths: " + GameManager.deaths);
+        GameManager.health = 0;
         particle.Play();
 
         spriteLight.SetActive(false);
