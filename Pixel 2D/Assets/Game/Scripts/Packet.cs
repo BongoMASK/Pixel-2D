@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameServer
-{
+//namespace GameServer
+//{
     /// <summary>Sent from server to client.</summary>
     public enum ServerPackets
     {
@@ -353,4 +353,4 @@ namespace GameServer
             GC.SuppressFinalize(this);
         }
     }
-}
+//}

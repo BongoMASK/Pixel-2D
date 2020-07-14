@@ -8,14 +8,14 @@ using System;
 public class Client : MonoBehaviour
 {
     public static Client instance;
-    /*public static int dataBufferSize = 4096;
+    public static int dataBufferSize = 4096;
 
     public string ip = "127.0.0.1";
     public int port = 26950;
     public int myId = 0;
     public TCP tcp;
 
-    private delegate void PacketHandler(PacketHandler _packet);
+    private delegate void PacketHandler(Packet _packet);
     private static Dictionary<int, PacketHandler> packetHandlers;
 
     private void Awake() {
@@ -34,6 +34,7 @@ public class Client : MonoBehaviour
     }
 
     public void ConnectToServer() {
+         InitializeClientData();
         tcp.Connect();
     }
 
@@ -52,6 +53,17 @@ public class Client : MonoBehaviour
 
             receiveBuffer = new byte[dataBufferSize];
             socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
+        }
+
+        public void SendData(Packet _packet) {
+            try {
+                if(socket != null) {
+                    stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null);
+                }
+            }
+            catch (Exception _ex) {
+                Debug.Log($"Error sending data to server via TCP: {_ex}");
+            }
         }
 
         private void ConnectCallback(IAsyncResult _result) {
@@ -95,8 +107,8 @@ public class Client : MonoBehaviour
                     return true;
                 }
             }
-            while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength) {
-                byte[] _packageBytes = receivedData.readBytes(_packetLength);
+            while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength()) {
+                byte[] _packetBytes = receivedData.ReadBytes(_packetLength);
                 ThreadManager.ExecuteOnMainThread(() => {
                     using (Packet _packet = new Packet(_packetBytes)) {
                         int _packetId = _packet.ReadInt();
@@ -121,7 +133,9 @@ public class Client : MonoBehaviour
     }
     private void InitializeClientData() {
         packetHandlers = new Dictionary<int, PacketHandler>() {
-            { (int)ServerPackets.welcome, ClientHandle.Welcome }
-        }
-    }*/
+            { (int) ServerPackets.welcome, ClientHandle.Welcome }
+        };
+        Debug.Log("Initialized Packets.");
+    }
+
 }   

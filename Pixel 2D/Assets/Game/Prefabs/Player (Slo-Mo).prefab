@@ -1047,7 +1047,7 @@ PrefabInstance:
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
@@ -1077,7 +1077,7 @@ PrefabInstance:
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
@@ -1092,12 +1092,12 @@ PrefabInstance:
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: TrailModule.widthOverTrail.scalar
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
@@ -1107,7 +1107,37 @@ PrefabInstance:
     - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
         type: 3}
       propertyPath: TrailModule.lifetime.scalar
-      value: 0.2
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: TrailModule.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: TrailModule.generateLightingData
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: TrailModule.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: TrailModule.dieWithParticles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 958773437365619311, guid: 56baa61e8e6f74dc9bb8fc761e7655f6,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56baa61e8e6f74dc9bb8fc761e7655f6, type: 3}

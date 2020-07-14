@@ -36,6 +36,8 @@ public class Movement : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
     }
     void Start() {
+        Upgrades.isTripleShoot = false;
+        isHit = false;
         Time.timeScale = 0f;
         lostCanvas.SetActive(false);
         restartBool = false;
@@ -47,7 +49,6 @@ public class Movement : MonoBehaviour
 
     void Update() {
 
-        Debug.Log("Health:" + GameManager.health);
         playerCollision.transform.position = transform.position;
 
         if((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !start) {
@@ -143,6 +144,7 @@ public class Movement : MonoBehaviour
         bc.enabled = false;
         speed = 0;
         restartBool = true;
+        isHit = true;
         CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
         //CameraShaker.Instance.ShakeOnce( );
         Time.timeScale = 0.2f;
