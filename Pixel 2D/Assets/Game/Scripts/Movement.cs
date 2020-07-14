@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
 {
     public static float playerSpeed = 725f;
     public float speed = 725f, time;
-    public GameObject lostCanvas, sr, spriteLight;
-    public static bool restartBool, difficult = false;
+    public GameObject lostCanvas, sr, spriteLight, damagePoints;
+    public static bool restartBool, difficult = false, isHit = false;
     bool start;
     int health, data, MoneyDropped, powerUpTime;
     int healthData, moneyDroppedData, powerUpTimeData;
@@ -72,30 +72,61 @@ public class Movement : MonoBehaviour
         }
         if(col.CompareTag("Wall") || col.CompareTag("Enemy")) {
             StartCoroutine(Explosion());
+            StartCoroutine(damagePoint(GameManager.totalHealth, Color.red, "-"));
         }
         if(col.CompareTag("Data")) {
             Destroy(col.gameObject);
-            GameManager.data = GameManager.data + 50;
+            int number = (int) GameManager.MoneyDropped * 2;
+            GameManager.data = GameManager.data + number;
+            StartCoroutine(damagePoint(number, Color.green, "+"));
             Debug.Log("data is: " + GameManager.data);
         }
+        if(col.CompareTag("Triple Shoot")) {
+            Destroy(col.gameObject);
+            StartCoroutine(Upgrades.TripleShoot());
+        }
     }
+
+    IEnumerator damagePoint(int number, Color colorName, string text) {
+        GameObject d = Instantiate(damagePoints, transform.position, Quaternion.identity) as GameObject;
+        TextMesh dText = d.GetComponentInChildren<TextMesh>();
+        dText.text = text + number;
+        dText.color = colorName;
+
+        yield return new WaitForSeconds(3f);
+        Destroy(d);        
+    }
+
     IEnumerator hit() {
         GameManager.health = GameManager.health - 26;
         CameraShaker.Instance.ShakeOnce(4f, 2.5f, 0.1f, 1f);
-        //CameraShaker.Instance.ShakeOnce( );
+        spriteLight.SetActive(false);
+
+        StartCoroutine(damagePoint(25, Color.red, "-"));
+        
+        isHit = true;
+        bc.enabled = false;
+
         yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0.2f;
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
+        spriteLight.SetActive(true);
         Time.timeScale = 1;
+                
+        yield return new WaitForSeconds(3f);
+        isHit = false;
+        bc.enabled = true;
     }
     public void Move() {
         playerPos = new Vector2(transform.position.x, transform.position.y);
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);  
 
         Vector2 moveInput4 = mousePos - playerPos;   
+        Vector2 moveInput3 = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         
         moveVelocity4 = moveInput4.normalized * speed;
+        //moveVelocity4 = moveInput3.normalized * speed;
         rb.velocity = moveVelocity4 * Time.fixedDeltaTime;
     }
     public void GameLost() {
@@ -112,12 +143,11 @@ public class Movement : MonoBehaviour
         bc.enabled = false;
         speed = 0;
         restartBool = true;
-        CameraShaker.Instance.ShakeOnce(2f, 20f, 0.1f, 1f);
+        CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
         //CameraShaker.Instance.ShakeOnce( );
-        yield return new WaitForSeconds(0.1f);
         Time.timeScale = 0.2f;
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         GameLost();        
         GameManager.deaths = GameManager.deaths + 1;
         GameManager.data = data;
@@ -129,6 +159,5 @@ public class Movement : MonoBehaviour
         GameManager.healthData = healthData;
         GameManager.moneyDroppedData = moneyDroppedData;
         GameManager.powerUpTimeData = powerUpTimeData;
-
     }
 }

@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         currentHealth.text = totalHealth.ToString();
         currentPowerUpTime.text = powerUpTime.ToString();
         currentMoneyDrop.text = MoneyDropped.ToString();
-        currentData.text = data.ToString();
+        currentData.text = "Data:   " + data.ToString();
         currentHealthData.text = healthData.ToString();
         currentMoneyDropData.text = moneyDroppedData.ToString();
         currentPowerUpTimeData.text = powerUpTimeData.ToString();

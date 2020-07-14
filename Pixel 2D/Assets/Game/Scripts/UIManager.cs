@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
+    /*public static UIManager instance;
 
     public GameObject startmenu;
     public InputField usernameField;
@@ -24,5 +24,5 @@ public class UIManager : MonoBehaviour
         startmenu.SetActive(false);
         usernameField.interactable = false;
         Client.instance.ConnectToServer();
-    }
+    }*/
 }

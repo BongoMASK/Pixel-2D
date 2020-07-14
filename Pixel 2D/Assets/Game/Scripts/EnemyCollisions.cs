@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using EZCameraShake;
 
 public class EnemyCollisions : MonoBehaviour
 {
     ParticleSystem particle;
     SpriteRenderer sr;
-    public GameObject sprites, spriteLight;
+    public GameObject sprites, spriteLight, dataPoints;
     BoxCollider2D bc;
     Enemy enemy;
     EnemyMovement enemyMovement;
@@ -35,12 +36,14 @@ public class EnemyCollisions : MonoBehaviour
         //give data for collateral kills, too - 400, enemy collateral - 500
         
     }
-    void dataReceived(float multiplier) {
-        GameManager.data = GameManager.data + (int) (GameManager.MoneyDropped * multiplier); 
-        
-    }
+
     IEnumerator Destruct(float multiplier) {
-        GameManager.data = GameManager.data + (int) (GameManager.MoneyDropped * multiplier); 
+        int data = (int) (GameManager.MoneyDropped * multiplier);
+
+        GameObject d = Instantiate(dataPoints, transform.position, Quaternion.identity) as GameObject;
+        TextMesh dText = d.GetComponentInChildren<TextMesh>();
+        dText.text = "+" + data;
+
         spriteLight.SetActive(false);
         sprites.SetActive(false);
         sr.enabled = false;
@@ -48,14 +51,12 @@ public class EnemyCollisions : MonoBehaviour
         enemyMovement.enabled = false;
         enemy.enabled = false;
         particle.Play();
-        CameraShaker.Instance.ShakeOnce(3f, 12f, 0.3f, 1f);
-        yield return new WaitForSeconds(0.1f);
-        Time.timeScale = 0.5f;
 
-        yield return new WaitForSeconds(0.05f);
-        Time.timeScale = 1;
+        CameraShaker.Instance.ShakeOnce(3f, 20f, 0.1f, 1f);
+        GameManager.data = GameManager.data + data;
 
-        yield return new WaitForSeconds (0.8f);
+        yield return new WaitForSeconds (1f);
+        Destroy(d);
         Destroy(gameObject);
     }
 }

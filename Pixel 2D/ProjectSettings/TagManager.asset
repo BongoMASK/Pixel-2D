@@ -12,6 +12,8 @@ TagManager:
   - Shooter
   - PlayerProtect
   - Data
+  - CameraController
+  - Triple Shoot
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         bulletSpeed = 25f;
     }
-    void Update() {  
+    void Update() {
         //EnemyMovement.animator.SetBool("isShoot", isShoot);
         difference = player.transform.position - transform.position;
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;        
@@ -41,6 +41,6 @@ public class Enemy : MonoBehaviour
         GameObject b = Instantiate(bullet) as GameObject;   //here, b is a subset of the bullet prefab
         b.transform.position = shooter.transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
-        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;        
+        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
     }
 }

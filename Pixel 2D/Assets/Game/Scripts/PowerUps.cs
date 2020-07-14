@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
-    GameObject playerCollision;
-    float clock = 2f;    //supposed to be for the slider to show time remaining for sharingan
+    GameObject playerCollision; 
+    float clock = 2f, clockInit;    //supposed to be for the slider to show time remaining for sharingan
     public static bool sharingan = false;
-    float clockInit;
     public Slider slider;
     EnemyMovement EnemyMovement;
     public Animator animator;
@@ -26,6 +25,7 @@ public class PowerUps : MonoBehaviour
     void Update() {
         slider.value = clock;
         animator.SetBool("sharingan", sharingan);
+        animator.SetBool("isHit", Movement.isHit);
 
         ClockRegen();
 
