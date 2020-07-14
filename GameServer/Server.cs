@@ -24,14 +24,14 @@ namespace GameServer
 
             tcpListener = new TcpListener(IPAddress.Any, Port);
             tcpListener.Start();
-            tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+            tcpListener.BeginAcceptTcpClient(TcpConnectCallback, null);
 
             Console.WriteLine($"Server started on {Port}.");
         }
 
         private static void TcpConnectCallback(IAsyncResult _result) {
             TcpClient _client = tcpListener.EndAcceptTcpClient(_result);
-            tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+            tcpListener.BeginAcceptTcpClient(TcpConnectCallback, null);
             Console.WriteLine($"Incoming connection from {_client.Client.RemoteEndPoint}...");
 
             for(int i = 1; i <= MaxPLayers; i++) {
