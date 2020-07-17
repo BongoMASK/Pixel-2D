@@ -197,7 +197,9 @@ public class Client : MonoBehaviour
     private void InitializeClientData() {
         packetHandlers = new Dictionary<int, PacketHandler>() {
             { (int) ServerPackets.welcome, ClientHandle.Welcome },
-            { (int) ServerPackets.udpTest, ClientHandle.UDPTest }
+            { (int) ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer},
+            { (int) ServerPackets.playerPosition, ClientHandle.PlayerPosition},
+            { (int) ServerPackets.playerRotation, ClientHandle.PlayerRotation}
         };
         Debug.Log("Initialized Packets.");
     }

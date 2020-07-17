@@ -19,10 +19,7 @@ public class GameManager : MonoBehaviour
     Text currentHealth, currentPowerUpTime, currentMoneyDrop, currentHealthData;
     Text currentPowerUpTimeData, currentMoneyDropData, currentData;
     public GameObject healthText, powerUpText, MoneyDropText, healthDataText;
-    public GameObject moneyDroppedDataText, powerUpTimeDataText, dataText, dataReceived1;
-    public static Text dataReceivedEnemy;
-    public static GameObject dataReceived;
-
+    public GameObject moneyDroppedDataText, powerUpTimeDataText, dataText;
 
     //Stats
     public static int totalHealth = 25;
@@ -36,10 +33,16 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        dataReceived = dataReceived1; 
-        dataReceivedEnemy = dataReceived.GetComponent<Text>();
         canvas = upgradeCanvas;
-        MakeSingleton(); 
+
+        if(instance  == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != null) {
+            Debug.Log("Instance already exists, destroying object");
+            Destroy(this);
+        }
     }
 
     void Update()
@@ -116,15 +119,6 @@ public class GameManager : MonoBehaviour
         }
         else {
             Debug.Log("Not enough data");
-        }
-    }
-    void MakeSingleton() {
-        if(instance != null) {
-            Destroy(gameObject);
-        }
-        else {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
  }
