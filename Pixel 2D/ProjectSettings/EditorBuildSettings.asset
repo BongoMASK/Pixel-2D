@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/Co-op.unity
     guid: e2e7c4552bd96460d82c20e36902cf6f
   - enabled: 1

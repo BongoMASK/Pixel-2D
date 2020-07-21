@@ -33,14 +33,14 @@ namespace GameServer
         
         private static void SendUDPDataToAll(Packet _packet) {
             _packet.WriteLength();
-            for(int i = 0; i <= Server.MaxPLayers ; i++) {
+            for(int i = 1; i <= Server.MaxPLayers ; i++) {
                 Server.clients[i].udp.SendData(_packet);
             }
         }
 
         private static void SendUDPDataToAll(int _exceptClient, Packet _packet) {
             _packet.WriteLength();
-            for(int i = 0; i <= Server.MaxPLayers; i++) {
+            for(int i = 1; i <= Server.MaxPLayers; i++) {
                 if(i != _exceptClient) {
                     Server.clients[i].udp.SendData(_packet);
                 }

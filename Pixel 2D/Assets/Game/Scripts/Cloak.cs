@@ -14,7 +14,7 @@ public class Cloak : MonoBehaviour
     EnemyMovement EnemyMovement;
     public Animator animator;
     public ParticleSystem particle;
-    // Start is called before the first frame update
+
     void Start()
     {
         clock = 3f;  
@@ -23,7 +23,6 @@ public class Cloak : MonoBehaviour
         playerCollision = GameObject.FindGameObjectWithTag("Respawn");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKey(KeyCode.D) || Input.GetMouseButton(2)) {

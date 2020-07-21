@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
         particle = GetComponentInChildren<ParticleSystem>();
         bc = GetComponent<BoxCollider2D>();
     }
+
     void Start() {
         Upgrades.isTripleShoot = false;
         isHit = false;
@@ -56,16 +57,16 @@ public class Movement : MonoBehaviour
             Pause.Canvas.SetActive(false);
             start = true;
         }
-
     }
-    void FixedUpdate() {
 
+    void FixedUpdate() {
         Move();
 
         if(GameManager.health <= 0) {
             StartCoroutine(Explosion());
         }
     }   
+
     void OnTriggerEnter2D(Collider2D col) {
 
         if(col.CompareTag("Bullet")) {
@@ -119,6 +120,7 @@ public class Movement : MonoBehaviour
         isHit = false;
         bc.enabled = true;
     }
+
     public void Move() {
         playerPos = new Vector2(transform.position.x, transform.position.y);
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);  
@@ -130,10 +132,12 @@ public class Movement : MonoBehaviour
         //moveVelocity4 = moveInput3.normalized * speed;
         rb.velocity = moveVelocity4 * Time.fixedDeltaTime;
     }
+
     public void GameLost() {
         lostCanvas.SetActive(true);        
         Time.timeScale = 0f;
     }
+    
     IEnumerator Explosion() {
         Debug.Log("deaths: " + GameManager.deaths);
         GameManager.health = 0;

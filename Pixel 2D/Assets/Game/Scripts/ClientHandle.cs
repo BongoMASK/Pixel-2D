@@ -15,12 +15,6 @@ public class ClientHandle : MonoBehaviour
 
         Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);        
     }
-    public static void UDPTest(Packet _packet) {
-        string _msg = _packet.ReadString();
-
-        Debug.Log($"Received packet via UDP. Contains message: {_msg}");
-        ClientSend.UDPTestReceived();
-    }
 
     public static void SpawnPlayer(Packet _packet) {
         int _id = _packet.ReadInt();

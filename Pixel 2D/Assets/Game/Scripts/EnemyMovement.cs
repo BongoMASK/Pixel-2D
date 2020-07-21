@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     GameObject player;
-    Vector2 moveVelocity;
-    public static float enemySpeed = 200;
+    Vector2 moveVelocity, playerPos;
+    public static float enemySpeed = 110;
     Rigidbody2D rb;
     public bool isTrigger;
-    bool isTriggered;
+    public static bool isTriggered;
     float rotation;
     public Animator animator;
     
@@ -20,12 +20,14 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        enemySpeed = 200;
+        enemySpeed = 110;
         rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
+        playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
+
         Move();
         animator.SetBool("isTrigger", isTrigger);
     }

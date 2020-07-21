@@ -58,5 +58,6 @@ public class EnemyCollisions : MonoBehaviour
         yield return new WaitForSeconds (1f);
         Destroy(d);
         Destroy(gameObject);
+        EnemyCount.currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 }

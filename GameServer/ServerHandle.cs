@@ -19,12 +19,6 @@ namespace GameServer
             Server.clients[_fromClient].SendIntoGame(_username);
         }
 
-        public static void UDPTestReceived(int _fromClient, Packet _packet) {
-            string _msg = _packet.ReadString();
-
-            Console.WriteLine($"Received packet via UDP. Contains message: {_msg}");
-        }
-
         public static void PlayerMovement(int _fromClient, Packet _packet) {
             bool[] _inputs = new bool[_packet.ReadInt()];
             for(int i =0; i < _inputs.Length; i++) {

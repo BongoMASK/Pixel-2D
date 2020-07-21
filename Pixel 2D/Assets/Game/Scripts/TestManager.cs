@@ -11,7 +11,6 @@ public class TestManager : MonoBehaviour
     public GameObject localPlayerPrefab;
     public GameObject playerPrefab;    
 
-
     void Awake() {
         if(instance  == null) {
             instance = this;

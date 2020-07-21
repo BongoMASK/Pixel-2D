@@ -31,7 +31,6 @@ public class EnemyCount : MonoBehaviour
         slider.maxValue = GameManager.totalHealth;
         slider.value = GameManager.health;
         
-        currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         clock -= Time.deltaTime;    //Countdown
 
         time = timeText.GetComponent<Text>();

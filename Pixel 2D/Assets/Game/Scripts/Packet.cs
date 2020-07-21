@@ -10,16 +10,14 @@ using System.Text;
         welcome = 1,
         spawnPlayer,
         playerPosition,
-        playerRotation,
-        udpTest
+        playerRotation
     }
 
     /// <summary>Sent from client to server.</summary>
     public enum ClientPackets
     {
         welcomeReceived = 1,
-        playerMovement,
-        udpTestReceived
+        playerMovement
     }
 
     public class Packet : IDisposable
