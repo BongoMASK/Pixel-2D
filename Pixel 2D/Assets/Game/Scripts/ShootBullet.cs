@@ -31,8 +31,8 @@ public class ShootBullet : MonoBehaviour
         player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         direction.Normalize();
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
+            EnemyGlitch.isShoot = true;
             shootBullet(direction, rotation);
-
         }
     }
     void shootBullet(Vector2 direction, float rotation) {

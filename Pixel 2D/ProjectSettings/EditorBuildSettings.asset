@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Maze.unity
     guid: 7121fd0321a854b14a246e8d0abbef68
   - enabled: 1
+    path: Assets/Game/Scenes/Glitch.unity
+    guid: c240c27bfbc894767be9b0eb0912cc1a
+  - enabled: 1
     path: Assets/Game/Scenes/Level 2.unity
     guid: 05d1d926f045045b3a2be54f5cac532d
   - enabled: 1

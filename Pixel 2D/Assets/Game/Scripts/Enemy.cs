@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     GameObject player;
     public GameObject bullet;
-    public float bulletSpeed = 25f;
+    public float bulletSpeed;
     Vector3 difference;
     public static float rotation;
     public float fireCountdown = 0.4f;
@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     void Awake() {
         isShoot = false;
         player = GameObject.FindGameObjectWithTag("Player");
-        bulletSpeed = 25f;
     }
     void Update() {
         //EnemyMovement.animator.SetBool("isShoot", isShoot);

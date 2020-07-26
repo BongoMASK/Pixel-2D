@@ -4,48 +4,57 @@ using UnityEngine;
 
 public class EnemyGlitch : MonoBehaviour
 {
-    Vector2 positionOffset;
+    Vector2 positionOffset, enemyPos;
+    static Vector2 playerLastPosition;
+    public GameObject enemy;
     GameObject player;
     float time = 5;
     Vector2 playerPos;
-    bool glitch;
+    bool glitch, isColliding;
     Animator animator;
+    public ParticleSystem particle;
+    public static bool isShoot;
 
-    void Start()
+    void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = enemy.GetComponentInParent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
         animator.SetBool("glitch", glitch);
+        
+        StartCoroutine(setPosition());
+        transform.position = enemy.transform.position;
 
-        playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
-        Vector2 enemyPos = new Vector2(transform.position.x, transform.position.y);
-        Vector2 minDistance = playerPos - enemyPos;
-
+        //playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
+        //enemyPos = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
+        //Vector2 minDistance = playerPos - enemyPos;
     }
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.CompareTag("Respawn")) {
-            StartCoroutine(changePosition(playerPos));
+            StartCoroutine(executePositionChange(1.5f));
+        }
+        if(col.CompareTag("PlayerBullet")) {
+            StartCoroutine(executePositionChange(0f));
         }
     }
 
-    public IEnumerator changePosition(Vector2 playerPos) {
-        yield return new WaitForSeconds(4.5f);
-        positionOffset.x = Random.Range(-10, 10);
-        positionOffset.y = Random.Range(-7, 7);
+    IEnumerator executePositionChange(float time) {
+        Instantiate(particle, playerLastPosition, Quaternion.identity);
         glitch = true;
-        Debug.Log(glitch);
+        Vector2 playerLastPositionFinal = playerLastPosition;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(time);
+        enemy.transform.position = playerLastPositionFinal;
         glitch = false;
-        transform.position = playerPos + positionOffset;
-
-        Debug.Log(glitch);
-        Debug.Log("position Changed to: " + transform.position);
-        Debug.Log(positionOffset);
+    }
+    
+    public IEnumerator setPosition() {
+        Vector2 playerPos = player.transform.position;
+        yield return new WaitForSeconds(0.25f);           
+        playerLastPosition = playerPos;
     }
 }

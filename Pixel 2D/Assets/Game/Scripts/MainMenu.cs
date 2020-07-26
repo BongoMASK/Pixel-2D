@@ -59,6 +59,9 @@ public class MainMenu : MonoBehaviour
     public void Survive() {
         SceneManager.LoadScene("Survive");
     }
+    public void Glitch() {
+        SceneManager.LoadScene("Glitch");
+    }
     public void mainMenu() {
         SceneManager.LoadScene("Start");
     }
