@@ -12,6 +12,8 @@ public class EnemyCollisions : MonoBehaviour
     BoxCollider2D bc;
     Enemy enemy;
     EnemyMovement enemyMovement;
+    public bool glitch;
+    public AudioSource explosionSound;
 
     void Awake()
     {   
@@ -20,11 +22,12 @@ public class EnemyCollisions : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
         bc = GetComponentInChildren<BoxCollider2D>();
         enemyMovement = GetComponent<EnemyMovement>();
+        explosionSound = GetComponent<AudioSource>();
         enemy = GetComponent<Enemy>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("PlayerBullet")) {
+        if(other.CompareTag("PlayerBullet") && (glitch == false)) {
             StartCoroutine(Destruct(1f));
         }
         if(other.CompareTag("Wall")) {
@@ -38,6 +41,7 @@ public class EnemyCollisions : MonoBehaviour
     }
 
     IEnumerator Destruct(float multiplier) {
+        explosionSound.Play();
         int data = (int) (GameManager.MoneyDropped * multiplier);
 
         GameObject d = Instantiate(dataPoints, transform.position, Quaternion.identity) as GameObject;

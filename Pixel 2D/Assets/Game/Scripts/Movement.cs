@@ -70,11 +70,14 @@ public class Movement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
 
         if(col.CompareTag("Bullet")) {
-            StartCoroutine(hit());   
+            StartCoroutine(hit(26));   
         }
-        if(col.CompareTag("Wall") || col.CompareTag("Enemy")) {
+        if(col.CompareTag("Wall")) {
             StartCoroutine(Explosion());
             StartCoroutine(damagePoint(GameManager.totalHealth, Color.red, "-"));
+        }
+        if(col.CompareTag("Enemy")) {
+            StartCoroutine(hit(51));   
         }
         if(col.CompareTag("Data")) {
             Destroy(col.gameObject);
@@ -99,8 +102,8 @@ public class Movement : MonoBehaviour
         Destroy(d);        
     }
 
-    IEnumerator hit() {
-        GameManager.health = GameManager.health - 26;
+    IEnumerator hit(int health) {
+        GameManager.health = GameManager.health - health;
         CameraShaker.Instance.ShakeOnce(4f, 2.5f, 0.1f, 1f);
         spriteLight.SetActive(false);
 
