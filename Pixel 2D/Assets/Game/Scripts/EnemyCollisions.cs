@@ -13,7 +13,7 @@ public class EnemyCollisions : MonoBehaviour
     Enemy enemy;
     EnemyMovement enemyMovement;
     public bool glitch;
-    public AudioSource explosionSound;
+    AudioSource explosionSound;
 
     void Awake()
     {   
