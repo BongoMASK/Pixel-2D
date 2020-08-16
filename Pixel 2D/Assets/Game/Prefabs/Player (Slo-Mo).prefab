@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cb10d5411d44382bb3da477a0c1a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 375
+  speed: 340
   time: 1
   lostCanvas: {fileID: 0}
   sr: {fileID: 4505355702235328386}

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class WormMovement : MonoBehaviour
 {
-    Vector2 playerPos, mousePos, moveVelocity4;
+    Vector2 playerPos, mousePos, moveVelocity4, wormPosition;
+    Vector2[] playerLastPosition;
     Rigidbody2D rb;
+    public GameObject[] subset;
     public float speed;
+    public float time;
 
     void Awake()
     {
@@ -17,6 +20,8 @@ public class WormMovement : MonoBehaviour
     {
         Move();
         wormRotation();
+        StartCoroutine(setPosition());
+        subsetPosition();
     }
 
     public void Move() {
@@ -36,4 +41,43 @@ public class WormMovement : MonoBehaviour
         float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
     }
+    
+    public IEnumerator setPosition() {
+        Vector2 playerPos = transform.position;      //same as above
+        for(int i = 0; i <= 5; i++) {
+            yield return new WaitForSeconds(time * (i+1));          
+            playerLastPosition[i] = transform.position;
+        }
+    }
+
+    public void subsetPosition() {
+        for(int i = 0; i <= subset.Length; i++) {
+            subset[i].transform.position = playerLastPosition[i];
+        }
+    }
+    /*public List<transform> BodyParts = new List<transform>();
+    public float minDistance = 0.25f;
+
+    public float speed = 1;
+    public float rotationSpeed = 50;
+
+    public GameObject bodyPrefab;
+
+    private float dis;
+    private transform curBodyPart;
+    private transform PrevBodyPart;
+
+    void Start() {
+
+    }
+
+    void Update() {
+
+    }
+
+    public void AddBodyPart() {
+        transform newPart = (Instantiate(bodyPrefab, BodyParts[BodyParts.Count - 1].position, [BodyParts.Count - 1].rotation) as GameObject).transform;
+        newPart.SetParent(transform);
+        BodyParts.Add(newPart);
+    }*/
 }

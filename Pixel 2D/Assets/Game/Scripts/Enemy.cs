@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         difference.Normalize();      //normalize is used to not increase speed by certain calculation errors
         if(fireCountdown <= -0.4f) {  //basically, normalize is x/|x|.
             shootBullet(difference, rotation);
-            fireCountdown = 1f;
+            fireCountdown = 2f;
         }
         if(fireCountdown <= 0 && fireCountdown >= -0.4) {
             isShoot = true;

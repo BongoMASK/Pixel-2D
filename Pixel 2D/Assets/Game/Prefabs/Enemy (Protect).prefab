@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6597152542741061507, guid: 7874198afdf694134b73d7ed6b491195, type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 15
   fireCountdown: 0.4
   shooter: {fileID: 3610804629800801046}
 --- !u!114 &5700557150975856819
