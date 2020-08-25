@@ -38,16 +38,17 @@ public class ShootBullet : MonoBehaviour
     void shootBullet(Vector2 direction, float rotation) {
         //yield return new WaitForSeconds(time);
         Vector3 offset = new Vector3(0, 1, 0);
-        if(Upgrades.isTripleShoot == true) {
-            GameObject b2 = Instantiate(bullet) as GameObject;   //here, b is a subset of the bullet prefab
-            b2.transform.position = shootingPoint.transform.position + offset;
-            b2.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation + 45);
-            b2.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed; 
 
+        if(Upgrades.isTripleShoot == true) {
             GameObject b1 = Instantiate(bullet) as GameObject;   //here, b is a subset of the bullet prefab
             b1.transform.position = shootingPoint.transform.position - offset;
             b1.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation - 45);
             b1.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed; 
+
+            GameObject b2 = Instantiate(bullet) as GameObject;   //here, b is a subset of the bullet prefab
+            b2.transform.position = shootingPoint.transform.position + offset;
+            b2.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation + 45);
+            b2.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed; 
 
             GameObject b3 = Instantiate(bullet) as GameObject;   //here, b is a subset of the bullet prefab
             b3.transform.position = shootingPoint.transform.position;

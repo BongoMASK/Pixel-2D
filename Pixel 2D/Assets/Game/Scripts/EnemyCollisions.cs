@@ -44,6 +44,8 @@ public class EnemyCollisions : MonoBehaviour
         explosionSound.Play();
         int data = (int) (GameManager.MoneyDropped * multiplier);
 
+        EnemyCount.currentEnemyCount = EnemyCount.currentEnemyCount - 1;
+
         GameObject d = Instantiate(dataPoints, transform.position, Quaternion.identity) as GameObject;
         TextMesh dText = d.GetComponentInChildren<TextMesh>();
         dText.text = "+" + data;
@@ -60,8 +62,9 @@ public class EnemyCollisions : MonoBehaviour
         GameManager.data = GameManager.data + data;
 
         yield return new WaitForSeconds (1f);
-        Destroy(d);
         Destroy(gameObject);
-        EnemyCount.currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        //EnemyCount.currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length - 1;
+        Destroy(d);
+        
     }
 }

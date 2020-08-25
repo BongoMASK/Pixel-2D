@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     public static bool restartBool, difficult = false, isHit = false;
     bool start;
     int health, data, MoneyDropped, powerUpTime;
-    int healthData, moneyDroppedData, powerUpTimeData;
+    int healthData, moneyDroppedData, powerUpTimeData, value;
     private Rigidbody2D rb;
     private Vector2 moveVelocity4, mousePos, playerPos;
     GameObject playerCollision;
@@ -88,11 +88,12 @@ public class Movement : MonoBehaviour
         }
         if(col.CompareTag("Triple Shoot")) {
             Destroy(col.gameObject);
-            StartCoroutine(Upgrades.TripleShoot());
+            random();
+            //StartCoroutine(damagePoint(0, Color.white, "Triple Shoot"));
         }
     }
 
-    IEnumerator damagePoint(int number, Color colorName, string text) {
+    public IEnumerator damagePoint(int number, Color colorName, string text) {
         GameObject d = Instantiate(damagePoints, transform.position, Quaternion.identity) as GameObject;
         TextMesh dText = d.GetComponentInChildren<TextMesh>();
         dText.text = text + number;
@@ -102,12 +103,40 @@ public class Movement : MonoBehaviour
         Destroy(d);        
     }
 
+    void random() {
+        if(GameManager.health < GameManager.totalHealth * 0.75) {
+            value = Random.Range(1,7);
+            Debug.Log("Probab distribution 1");
+        }
+        if(PowerUps.clock < PowerUps.clockInit * 0.5) {
+            value = Random.Range(-1,5);
+            Debug.Log("probab dist 2");
+        }
+        else {
+            value = Random.Range(1,5);
+        }
+
+        Debug.Log(value);
+        if(value >= 2 && value <= 3) {
+            StartCoroutine(Upgrades.TripleShoot());
+            StartCoroutine(damagePoint(0, Color.white, "Triple Shoot"));
+        }
+        if(value < 7 && value > 3) {
+           Upgrades.HealthRegen();
+            StartCoroutine(damagePoint(0, Color.white, "+25% Health"));
+        }
+        if(value >= -1 && value < 2) {
+            Upgrades.PowerRegen();
+            StartCoroutine(damagePoint(0, Color.white, "Power Regenerated"));
+        }
+    }
+
     IEnumerator hit(int health) {
         GameManager.health = GameManager.health - health;
         CameraShaker.Instance.ShakeOnce(4f, 2.5f, 0.1f, 1f);
         spriteLight.SetActive(false);
 
-        StartCoroutine(damagePoint(25, Color.red, "-"));
+        StartCoroutine(damagePoint(health, Color.red, "-"));
         
         isHit = true;
         bc.enabled = false;

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public static int penetrationData;
     public static float MoneyDropped = 20;
     public static int moneyDroppedData = 250;
-    public static int powerUpTime = 3;
+    public static int powerUpTime = 2;
     public static int powerUpTimeData = 175;
 
     void Awake()
@@ -88,6 +88,10 @@ public class GameManager : MonoBehaviour
             health = health + 1;
             secondsPast = 1f;
         }
+        if(secondsPast <= 0 && health > totalHealth) {
+            health = health - 1;
+            secondsPast = 1f;
+        }
         secondsPast -= Time.deltaTime;
     }
     public void healthUpgrade() {
@@ -116,6 +120,7 @@ public class GameManager : MonoBehaviour
             data = data - powerUpTimeData;
             powerUpTime = powerUpTime + 1;
             powerUpTimeData = powerUpTimeData * 2;
+            PowerUps.clockInit = powerUpTime;
         }
         else {
             Debug.Log("Not enough data");

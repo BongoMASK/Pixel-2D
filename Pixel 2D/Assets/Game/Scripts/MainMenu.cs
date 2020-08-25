@@ -62,6 +62,9 @@ public class MainMenu : MonoBehaviour
     public void Glitch() {
         SceneManager.LoadScene("Glitch");
     }
+    public void Compress() {
+        SceneManager.LoadScene("Compress");
+    }
     public void mainMenu() {
         SceneManager.LoadScene("Start");
     }

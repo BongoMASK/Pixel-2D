@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Survive.unity
     guid: 9571a422065a1437093e9054cd29638e
   - enabled: 1
+    path: Assets/Game/Scenes/Compress.unity
+    guid: 640944e66777841b6948d39e12833964
+  - enabled: 1
     path: Assets/Game/Scenes/Maze.unity
     guid: 7121fd0321a854b14a246e8d0abbef68
   - enabled: 1

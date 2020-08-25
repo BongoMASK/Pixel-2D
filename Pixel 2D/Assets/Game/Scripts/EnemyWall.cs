@@ -26,6 +26,7 @@ public class EnemyWall : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if(col.CompareTag("Wall")) {
             particle.Play();
+            rb.Sleep();
             //CameraShaker.Instance.ShakeOnce(4f, 2.5f, 0.1f, 1f);
         }
     }

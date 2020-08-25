@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PowerUps : MonoBehaviour
 {
     GameObject playerCollision; 
-    float clock = 2f, clockInit;    //supposed to be for the slider to show time remaining for sharingan
+    public static float clock, clockInit;        //supposed to be for the slider to show time remaining for sharingan
     public static bool sharingan = false;
     public Slider slider;
     EnemyMovement EnemyMovement;
@@ -16,31 +16,30 @@ public class PowerUps : MonoBehaviour
     //the game is actually kinda hard and this would just make it a bit easier for people to play
     //plus, its cool as hell
     void Start() { 
-        clock = 2f;  
+        clock = GameManager.powerUpTime;  
         clockInit = clock;
-        slider.maxValue = 2f;
+        slider.maxValue = clockInit;
         playerCollision = GameObject.FindGameObjectWithTag("Respawn");
     }
 
     void Update() {
+        //clockInit = GameManager.powerUpTime;
         slider.value = clock;
         animator.SetBool("sharingan", sharingan);
         animator.SetBool("isHit", Movement.isHit);
 
         ClockRegen();
 
-        //try to not make them shoot in slo - mo
-        //it will encourage people to make enemies kill each other
         if(Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) {
             StartCoroutine(Sharingan());
         } 
 
-        if(Input.GetKey(KeyCode.D) || Input.GetMouseButton(2)) {
+        /*if(Input.GetKey(KeyCode.D) || Input.GetMouseButton(2)) {
             StartCoroutine(Cloak());
-        }
+        }*/
 
         if(clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1) || 
-          Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)) {
+            Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)) {
             StopCoroutine(Cloak());
             StopCoroutine(Sharingan());
             sharingan = false;
@@ -76,8 +75,11 @@ public class PowerUps : MonoBehaviour
         sharingan = true;
         yield return new WaitForSeconds(clockInit);
     }
+
     //Main Idea - make certain enemies good, makes other enemies target that enemy
     //Number of people touching playerCollision will be made good.
+    //(maybe) will follow you and kill enemies near you until dead
+    // OR will kill closest enemy to it
     IEnumerator Glitch() {
         yield return new WaitForSeconds(5);
     }
