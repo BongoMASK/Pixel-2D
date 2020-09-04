@@ -14,6 +14,7 @@ public class EnemyCollisions : MonoBehaviour
     EnemyMovement enemyMovement;
     public bool glitch;
     AudioSource explosionSound;
+    int i = 0;
 
     void Awake()
     {   
@@ -36,7 +37,7 @@ public class EnemyCollisions : MonoBehaviour
         if(other.CompareTag("Bullet")) {
             StartCoroutine(Destruct(1.5f));
         }
-        //give data for collateral kills, too - 400, enemy collateral - 500
+        //TODO: give data for collateral kills, too - +10
         
     }
 
@@ -63,7 +64,7 @@ public class EnemyCollisions : MonoBehaviour
 
         yield return new WaitForSeconds (1f);
         Destroy(gameObject);
-        //EnemyCount.currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length - 1;
+        EnemyCount.currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length - 1;
         Destroy(d);
         
     }

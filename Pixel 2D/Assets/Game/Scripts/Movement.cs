@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private Vector2 moveVelocity4, mousePos, playerPos;
     GameObject playerCollision;
     ParticleSystem particle;      BoxCollider2D bc;     
+    public static int dataFinal;
 
     void Awake() {
         health = GameManager.totalHealth;
@@ -84,12 +85,10 @@ public class Movement : MonoBehaviour
             int number = (int) GameManager.MoneyDropped * 2;
             GameManager.data = GameManager.data + number;
             StartCoroutine(damagePoint(number, Color.green, "+"));
-            Debug.Log("data is: " + GameManager.data);
         }
         if(col.CompareTag("Triple Shoot")) {
             Destroy(col.gameObject);
             random();
-            //StartCoroutine(damagePoint(0, Color.white, "Triple Shoot"));
         }
     }
 
@@ -106,17 +105,14 @@ public class Movement : MonoBehaviour
     void random() {
         if(GameManager.health < GameManager.totalHealth * 0.75) {
             value = Random.Range(1,7);
-            Debug.Log("Probab distribution 1");
         }
         if(PowerUps.clock < PowerUps.clockInit * 0.5) {
             value = Random.Range(-1,5);
-            Debug.Log("probab dist 2");
         }
         else {
-            value = Random.Range(1,5);
+            value = Random.Range(2,5);
         }
 
-        Debug.Log(value);
         if(value >= 2 && value <= 3) {
             StartCoroutine(Upgrades.TripleShoot());
             StartCoroutine(damagePoint(0, Color.white, "Triple Shoot"));
@@ -158,7 +154,7 @@ public class Movement : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);  
 
         Vector2 moveInput4 = mousePos - playerPos;   
-        Vector2 moveInput3 = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        //Vector2 moveInput3 = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         
         moveVelocity4 = moveInput4.normalized * speed;
         //moveVelocity4 = moveInput3.normalized * speed;
@@ -166,12 +162,11 @@ public class Movement : MonoBehaviour
     }
 
     public void GameLost() {
-        lostCanvas.SetActive(true);        
+        lostCanvas.SetActive(true);
         Time.timeScale = 0f;
     }
     
     IEnumerator Explosion() {
-        Debug.Log("deaths: " + GameManager.deaths);
         GameManager.health = 0;
         particle.Play();
 
@@ -182,11 +177,11 @@ public class Movement : MonoBehaviour
         restartBool = true;
         isHit = true;
         CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
-        //CameraShaker.Instance.ShakeOnce( );
         Time.timeScale = 0.2f;
 
         yield return new WaitForSeconds(0.2f);
-        GameLost();        
+        GameLost();       
+        dataFinal = GameManager.data; 
         GameManager.deaths = GameManager.deaths + 1;
         GameManager.data = data;
         

@@ -26,6 +26,12 @@ public class EnemyCount : MonoBehaviour
         clock = 30;
         totalEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         currentEnemyCount = totalEnemyCount;
+
+        time = timeText.GetComponent<Text>();
+        score = scoreText.GetComponent<Text>(); 
+        finish = finishText.GetComponent<Text>();
+        powerUp = powerUpText.GetComponent<Text>();
+        health = healthText.GetComponent<Text>();
     }
     void Update()
     {
@@ -33,12 +39,6 @@ public class EnemyCount : MonoBehaviour
         slider.value = GameManager.health;
         
         clock -= Time.deltaTime;    //Countdown
-
-        time = timeText.GetComponent<Text>();
-        score = scoreText.GetComponent<Text>(); 
-        finish = finishText.GetComponent<Text>();
-        powerUp = powerUpText.GetComponent<Text>();
-        health = healthText.GetComponent<Text>();
 
         time.text = clock.ToString();                   //placed in this order because this value updates last
         score.text = currentEnemyCount.ToString() + " / " + totalEnemyCount.ToString() + " Enemies Left"; 

@@ -16,14 +16,13 @@ public class PowerUps : MonoBehaviour
     //the game is actually kinda hard and this would just make it a bit easier for people to play
     //plus, its cool as hell
     void Start() { 
-        clock = GameManager.powerUpTime;  
+        clock = GameManager.powerUpTime;
         clockInit = clock;
         slider.maxValue = clockInit;
         playerCollision = GameObject.FindGameObjectWithTag("Respawn");
     }
 
     void Update() {
-        //clockInit = GameManager.powerUpTime;
         slider.value = clock;
         animator.SetBool("sharingan", sharingan);
         animator.SetBool("isHit", Movement.isHit);
@@ -32,15 +31,15 @@ public class PowerUps : MonoBehaviour
 
         if(Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) {
             StartCoroutine(Sharingan());
-        } 
+        }
 
-        /*if(Input.GetKey(KeyCode.D) || Input.GetMouseButton(2)) {
-            StartCoroutine(Cloak());
-        }*/
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetMouseButtonDown(2)) {
+            StartCoroutine(Disable());
+        }
 
-        if(clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1) || 
-            Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)) {
-            StopCoroutine(Cloak());
+        if(clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1) /*|| 
+          Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)*/) {
+            StopCoroutine(Disable());
             StopCoroutine(Sharingan());
             sharingan = false;
             playerCollision.SetActive(true);
@@ -49,17 +48,46 @@ public class PowerUps : MonoBehaviour
         }
     }
 
+    //Slow down time
+    //other name ideas - Kronos, Slo - mo
+    IEnumerator Sharingan() {
+        Time.timeScale = 0.6f;
+        int number = (int) (clock * 1.5f) + 1;
+        EnemyCount.powerUp.text = "Slo-Mo " + number.ToString();
+        clock -= Time.deltaTime;
+        sharingan = true;
+        yield return new WaitForSeconds(clockInit);
+    }
+
     //Main idea - enemies will shoot but not move
     //the other way will make the protect powerup useless
     //This works... in a different way...
     //Basically, since the bulletSpeed = 0, the bullet still spawns and then destroys the enemy itself...
     //plus, the bullet stays there and never moves again, which if used wrongly is game-breaking
     IEnumerator Disable() {
-        int number = (int) (clock * 1.5f) + 1;
-        EnemyCount.powerUp.text = "Disable " + number.ToString();
-        clock -=Time.deltaTime;
-        EnemyMovement.enemySpeed = 0;
-        sharingan = true;
+        if(clock < slider.maxValue) {
+            Debug.Log("not enough");
+        }
+        else {
+            while(clock > 0) {
+                yield return new WaitForSeconds(0f);
+                int number = (int) (clock) + 1;
+                EnemyCount.powerUp.text = "Disable " + number.ToString();
+                Debug.Log("disable");
+                EnemyMovement.enemySpeed = 0;
+                sharingan = true;
+                clock -= Time.deltaTime;
+            }
+            EnemyMovement.enemySpeed = 110;
+        }
+    }
+
+    //Main Idea - make certain enemies good, makes other enemies target that enemy
+    //Number of people touching playerCollision will be made good.
+    //(maybe) will follow you and kill enemies near you until dead
+    // OR will kill closest enemy to it
+    IEnumerator Glitch() {
+        
         yield return new WaitForSeconds(5);
     }
 
@@ -76,24 +104,6 @@ public class PowerUps : MonoBehaviour
         yield return new WaitForSeconds(clockInit);
     }
 
-    //Main Idea - make certain enemies good, makes other enemies target that enemy
-    //Number of people touching playerCollision will be made good.
-    //(maybe) will follow you and kill enemies near you until dead
-    // OR will kill closest enemy to it
-    IEnumerator Glitch() {
-        yield return new WaitForSeconds(5);
-    }
-
-    //Slow down time
-    //other name ideas - Kronos, Slo - mo
-    IEnumerator Sharingan() {
-        Time.timeScale = 0.6f;
-        int number = (int) (clock * 1.5f) + 1;
-        EnemyCount.powerUp.text = "Slo-Mo " + number.ToString();
-        clock -= Time.deltaTime;
-        sharingan = true;
-        yield return new WaitForSeconds(clockInit);
-    }
     void ClockRegen() {
         if(clock < clockInit && !sharingan) {
             clock = clock + (Time.deltaTime * 0.4f);

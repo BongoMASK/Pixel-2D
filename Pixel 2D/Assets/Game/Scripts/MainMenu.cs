@@ -56,6 +56,9 @@ public class MainMenu : MonoBehaviour
     public void Maze() {
         SceneManager.LoadScene("Maze");
     }
+    public void Delete() {
+        SceneManager.LoadScene("Delete");
+    }
     public void Survive() {
         SceneManager.LoadScene("Survive");
     }

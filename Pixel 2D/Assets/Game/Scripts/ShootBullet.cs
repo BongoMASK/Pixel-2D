@@ -62,10 +62,10 @@ public class ShootBullet : MonoBehaviour
             b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }
     }
-    void OnTriggerEnter2D(Collider2D col) {
+    /*void OnTriggerEnter2D(Collider2D col) {
         if(col.CompareTag("Enemy")) {
             GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
             Debug.Log("collateral Kill: X" + GameManager.enemiesKilled);
         }
-    }
+    }*/
 }

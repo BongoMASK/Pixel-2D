@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Maze
+  m_text: Delete
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bee4a3453a10f4543b968fde662bb781, type: 2}
   m_sharedMaterial: {fileID: -2581897446476100693, guid: bee4a3453a10f4543b968fde662bb781,
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_margin: {x: -2.7221675, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 742629047}
-    characterCount: 4
+    characterCount: 6
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1804,7 +1804,7 @@ GameObject:
   - component: {fileID: 1081036168}
   - component: {fileID: 1081036167}
   m_Layer: 5
-  m_Name: Maze
+  m_Name: Delete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1874,7 +1874,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1379101481}
-        m_MethodName: Maze
+        m_MethodName: Delete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
