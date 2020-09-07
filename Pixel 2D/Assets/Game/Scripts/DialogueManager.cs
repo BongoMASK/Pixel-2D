@@ -17,11 +17,12 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue) {
+    public void StartDialogue(Dialogue dialogue, Color color) {
         isOpen = true;
         animator.SetBool("isOpen", isOpen);
         //Debug.Log("starting convo with " + dialogue.name);
         nameText.text = dialogue.name;
+        nameText.color = color;
         sentences.Clear();
 
         foreach(string sentence in dialogue.sentences) {
