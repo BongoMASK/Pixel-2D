@@ -459,9 +459,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 50
+  isGoodOnly: 0
+  isBadOnly: 0
+  hybrid: 0
   button: {fileID: 1278046654713915432}
-  color1: {r: 0, g: 1, b: 0.22047544, a: 0.2901961}
-  color2: {r: 0.9960785, g: 0, b: 0, a: 0.2901961}
+  color1: {r: 0, g: 1, b: 0.22047544, a: 0.29411766}
+  color2: {r: 0.9960785, g: 0, b: 0, a: 0.29411766}
   background: {fileID: 0}
   dialogue:
     name: Computer

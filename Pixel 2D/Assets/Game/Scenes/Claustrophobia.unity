@@ -4901,6 +4901,11 @@ PrefabInstance:
       propertyPath: dialogue2.sentences.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: hybrid
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1278046655104150550, guid: f084099e7463919468d761fceb7e2c47,
         type: 3}
       propertyPath: m_LocalPosition.z

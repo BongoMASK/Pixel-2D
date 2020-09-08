@@ -5,9 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    int val;
+    int val, k;
 
     public int range = 50;
+    public bool isGoodOnly;
+    public bool isBadOnly;
+    public bool hybrid;
     public GameObject button;
     public Color color1;
     public Color color2;
@@ -16,7 +19,16 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue2;
 
     void Awake() {
-        val =  Random.Range(1, 3);
+        if(isGoodOnly == true) {
+            val = 1;
+        }
+        else if(isBadOnly == true) {
+            val = 2;
+        }
+        else {
+            val =  Random.Range(1, 3);
+        }
+
         if(val == 1)
             for(int i = -range; i <= range; i++) 
                 for(int j = -range; j <= range; j++)
@@ -26,8 +38,17 @@ public class DialogueTrigger : MonoBehaviour
             for(int i = -range; i <= range; i++) 
                 for(int j = -range; j <= range; j++)
                     SetTileColour(color2, new Vector3Int(i,j,0), background);
-
-            //-8, 15, 25, 15
+                    
+        if(hybrid == true) {
+            for(int i = -range; i <= range; i++) 
+                for(int j = -range; j <= range; j++) {
+                    k = Random.Range(1, 10);
+                    if(k == 1) 
+                        SetTileColour(color1, new Vector3Int(i,j,0), background);
+                    if(k == 2)
+                        SetTileColour(color2, new Vector3Int(i,j,0), background);
+                }
+        }        
     }
 
     public void TriggerDialogue() {

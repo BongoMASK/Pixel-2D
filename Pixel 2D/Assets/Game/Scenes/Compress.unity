@@ -78400,6 +78400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
         type: 3}
+      propertyPath: dialogue2.sentences.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
       propertyPath: dialogue2.sentences.Array.data[0]
       value: I see that you are trying to take down my entire empire. Do you really
         think i will let you do that?
@@ -78413,6 +78418,39 @@ PrefabInstance:
         type: 3}
       propertyPath: color2.a
       value: 0.2901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: isBadOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue2.sentences.Array.data[6]
+      value: Well, lets just say you won't just be mildly uncomfortable.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue2.sentences.Array.data[7]
+      value: 'I remember, she used to say this:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue2.sentences.Array.data[4]
+      value: You know why? This is a compressor. Those red walls were designed with
+        you in mind.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue2.sentences.Array.data[5]
+      value: 'Usually, compressing just makes you mildly uncomfortable. But, for
+        you... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue2.sentences.Array.data[8]
+      value: '"Good luck". Well, i guess she''s right because you''ll most definetly
+        need it. ;)'
       objectReference: {fileID: 0}
     - target: {fileID: 1278046655104150550, guid: f084099e7463919468d761fceb7e2c47,
         type: 3}
