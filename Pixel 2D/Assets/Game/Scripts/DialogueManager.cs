@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public Text nameText;
     public Animator animator;
-    bool isOpen;
+    bool isOpen = true;
 
     void Start()
     {

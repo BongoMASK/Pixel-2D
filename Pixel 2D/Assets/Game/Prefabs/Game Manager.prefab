@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 147460339647573992}
   - component: {fileID: 3939751005914031064}
   - component: {fileID: 5707669372685086652}
+  - component: {fileID: 770006230}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsPast: 1
   upgradeCanvas: {fileID: 7848020257839222530}
+  cheatUpgrades: {fileID: 0}
   healthText: {fileID: 7848020258822075986}
   powerUpText: {fileID: 7738668874312577517}
   MoneyDropText: {fileID: 6071541119159167645}
@@ -61,12 +63,108 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147460339647573994}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dfdb2a51ce518bf4b9208594d1ced9d1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
+  m_Pitch: 0.6
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &770006230
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147460339647573994}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 93156dbf0645a4fe283d14acadf0b5cf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1cec727d5cc32b643a70563798f3b2d8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -157,6 +255,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 147460339647573992}
     m_Modifications:
+    - target: {fileID: 621760955440126073, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621760955440126073, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621760955440126073, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621760955440126073, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621760955440126073, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452949375075920667, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452949375075920667, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452949375075920667, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452949375075920667, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2731005215200872762, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
         type: 3}
       propertyPath: m_Name
@@ -272,9 +415,49 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2731005216418126409, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731005216418126409, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731005216418126409, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731005216418126409, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2731005216471413448, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731005216607626481, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731005216607626481, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731005216607626481, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731005216607626481, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2731005216766215523, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
@@ -287,6 +470,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: healthUpgrade
       objectReference: {fileID: 0}
+    - target: {fileID: 3298041837176631109, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298041837176631109, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298041837176631109, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298041837176631109, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571982462488561440, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e0ccd01ea7db46feb4778defbffe9e9, type: 3}
     - target: {fileID: 4882755804701627632, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -296,6 +504,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: powerUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079576182762297107, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079576182762297107, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079576182762297107, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079576182762297107, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079576182762297107, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7370496847153124201, guid: 71f371bf21ab04b4e89a57d7bb6a5f97,
         type: 3}

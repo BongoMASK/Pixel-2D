@@ -20,7 +20,9 @@ public class EnemyWall : MonoBehaviour
     }
 
     void Update() {
-        
+        /*if(!Switch.isCollided) {
+            StartCoroutine(wallMovement());
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D col) {
@@ -36,26 +38,23 @@ public class EnemyWall : MonoBehaviour
 
     IEnumerator wallMovement() {
         while(1==1) {
+            //Switch.isCollided = true;
             float fallTime = Random.Range(time, time + 2);
             if(horizontal == true) {
                 rb.AddForce(transform.right * -4 * thrust * rightLeft);
             }
-
             else {
                 rb.AddForce(transform.up * -4 * thrust * rightLeft);
             }
-
             yield return new WaitForSeconds(fallTime);
-
             if(horizontal == true) {
                 rb.AddForce(transform.right * 4 * thrust * rightLeft);
             }
-
             else {
                 rb.AddForce(transform.up * thrust * 4 * rightLeft);
             }
-
             yield return new WaitForSeconds(fallTime);
+            
         }
     }
 }

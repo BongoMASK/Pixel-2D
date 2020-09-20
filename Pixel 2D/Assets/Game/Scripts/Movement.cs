@@ -7,10 +7,9 @@ using EZCameraShake;
 public class Movement : MonoBehaviour
 {
     public static float playerSpeed = 725f;
-    public float speed = 725f, time;
+    public float speed, time;
     public GameObject lostCanvas, sr, spriteLight, damagePoints;
-    public static bool restartBool, difficult = false, isHit = false;
-    bool start;
+    public static bool restartBool, difficult = false, isHit = false, start;
     int health, data, MoneyDropped, powerUpTime;
     int healthData, moneyDroppedData, powerUpTimeData, value;
     private Rigidbody2D rb;
@@ -31,7 +30,7 @@ public class Movement : MonoBehaviour
         moneyDroppedData = GameManager.moneyDroppedData;
         powerUpTimeData = GameManager.powerUpTimeData;
         
-        start = true;
+        start = false;
         
         particle = GetComponentInChildren<ParticleSystem>();
         bc = GetComponent<BoxCollider2D>();
@@ -40,6 +39,7 @@ public class Movement : MonoBehaviour
     void Start() {
         Upgrades.isTripleShoot = false;
         isHit = false;
+        //speed = 0f;
         Time.timeScale = 0f;
         lostCanvas.SetActive(false);
         restartBool = false;
@@ -50,23 +50,32 @@ public class Movement : MonoBehaviour
     }
 
     void Update() {
-
+        //Debug.Log(start);
         playerCollision.transform.position = transform.position;
-
-        if((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !start) {
-            Time.timeScale = 1f;
-            Pause.Canvas.SetActive(false);
-            start = true;
-        }
     }
 
     void FixedUpdate() {
+
+        if((Input.GetKeyDown(KeyCode.A))) {
+            gameStart();
+            /*Time.timeScale = 1f;
+            Pause.Canvas.SetActive(false);
+            start = true;*/
+        }
+
         Move();
 
         if(GameManager.health <= 0) {
             StartCoroutine(Explosion());
         }
     }   
+
+    void gameStart() {
+        //speed = 340f;
+        start = true;
+        Time.timeScale = 1f;
+        Pause.Canvas.SetActive(false);
+    }
 
     void OnTriggerEnter2D(Collider2D col) {
 
@@ -170,6 +179,7 @@ public class Movement : MonoBehaviour
         GameManager.health = 0;
         particle.Play();
 
+
         spriteLight.SetActive(false);
         sr.SetActive(false);
         bc.enabled = false;
@@ -192,5 +202,8 @@ public class Movement : MonoBehaviour
         GameManager.healthData = healthData;
         GameManager.moneyDroppedData = moneyDroppedData;
         GameManager.powerUpTimeData = powerUpTimeData;
+
+        CodeGenerator.i = 0;
+        CodeGenerator.arr2 = new int[6];
     }
 }

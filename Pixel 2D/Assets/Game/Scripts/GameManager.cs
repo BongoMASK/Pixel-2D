@@ -11,15 +11,15 @@ public class GameManager : MonoBehaviour
     public static int enemiesKilled;
     public float secondsPast = 1f;
     public static int health;
-    public GameObject upgradeCanvas;
+    public GameObject upgradeCanvas, cheatUpgrades;
     public static GameObject canvas;
-    bool isUpgrade = false;
+    bool isUpgrade = false, godMode = false;
 
     //Text
-    Text currentHealth, currentPowerUpTime, currentMoneyDrop, currentHealthData;
-    Text currentPowerUpTimeData, currentMoneyDropData, currentData;
-    public GameObject healthText, powerUpText, MoneyDropText, healthDataText;
-    public GameObject moneyDroppedDataText, powerUpTimeDataText, dataText;
+    Text currentHealth, currentPowerUpTime, currentMoneyDrop, currentHealthData, godSwitch;
+    Text currentPowerUpTimeData, currentMoneyDropData, currentData, cheatMoney, cheatHealth;
+    public GameObject healthText, powerUpText, MoneyDropText, healthDataText, godText;
+    public GameObject moneyDroppedDataText, powerUpTimeDataText, dataText, cheatMoneyText, cheatHealthText;
 
     //Stats
     public static int totalHealth = 25;
@@ -33,6 +33,16 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        currentHealth = healthText.GetComponent<Text>();
+        currentPowerUpTime = powerUpText.GetComponent<Text>();
+        currentMoneyDrop = MoneyDropText.GetComponent<Text>();
+        currentData = dataText.GetComponent<Text>();
+        currentHealthData = healthDataText.GetComponent<Text>();
+        currentMoneyDropData = moneyDroppedDataText.GetComponent<Text>();
+        currentPowerUpTimeData = powerUpTimeDataText.GetComponent<Text>();
+
+        cheatHealth = cheatHealthText.GetComponent<Text>();
+        cheatMoney = cheatMoneyText.GetComponent<Text>();
         canvas = upgradeCanvas;
 
         if(instance  == null) {
@@ -57,13 +67,6 @@ public class GameManager : MonoBehaviour
                 resume();
             }
         }
-        currentHealth = healthText.GetComponent<Text>();
-        currentPowerUpTime = powerUpText.GetComponent<Text>();
-        currentMoneyDrop = MoneyDropText.GetComponent<Text>();
-        currentData = dataText.GetComponent<Text>();
-        currentHealthData = healthDataText.GetComponent<Text>();
-        currentMoneyDropData = moneyDroppedDataText.GetComponent<Text>();
-        currentPowerUpTimeData = powerUpTimeDataText.GetComponent<Text>();
         
         currentHealth.text = totalHealth.ToString();
         currentPowerUpTime.text = powerUpTime.ToString();
@@ -72,6 +75,10 @@ public class GameManager : MonoBehaviour
         currentHealthData.text = healthData.ToString();
         currentMoneyDropData.text = moneyDroppedData.ToString();
         currentPowerUpTimeData.text = powerUpTimeData.ToString();
+
+        cheatHealth.text = totalHealth.ToString();
+        cheatMoney.text = MoneyDropped.ToString();
+
     }
     void resume() {
         upgradeCanvas.SetActive(false);
@@ -114,6 +121,40 @@ public class GameManager : MonoBehaviour
         else {
             Debug.Log("Not enough data");
         }
+    }
+
+    public void GodMode() {
+        if(godMode == false) {
+            Debug.Log("god mode activated");
+            cheatUpgrades.SetActive(true);
+            //godText.text = "ON";
+        }
+    }
+
+    public void moneyIncreaseCheat() {
+        MoneyDropped = MoneyDropped + 10;
+        moneyDroppedData = moneyDroppedData * 2;
+        //cheatMoney.text = MoneyDropped.ToString();
+    }
+
+    public void healthIncreaseCheat() {
+        totalHealth = totalHealth + 25;
+        health = health + 25;
+        healthData = healthData * 2;
+        //cheatHealth.text = totalHealth.ToString();
+    }
+
+    public void moneyDecreaseCheat() {
+        MoneyDropped = MoneyDropped - 10;
+        moneyDroppedData = moneyDroppedData / 2;
+        //cheatMoney.text = MoneyDropped.ToString();        
+    }
+
+    public void healthDecreaseCheat() {
+        totalHealth = totalHealth - 25;
+        health = health - 25;
+        healthData = healthData / 2;
+        //cheatHealth.text = totalHealth.ToString();
     }
     public void powerUpgrade() {
         if(data >= powerUpTimeData)  {

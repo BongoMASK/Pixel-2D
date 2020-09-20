@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
     int val, k;
 
     public int range = 50;
-    public bool isGoodOnly;
-    public bool isBadOnly;
+    public bool isGoodOnly, isBadOnly;
     public bool hybrid;
-    public GameObject button;
-    public Color color1;
-    public Color color2;
+    public GameObject button, image;
+    public Color color1, color2, color3;
     public Tilemap background;
-    public Dialogue dialogue;
-    public Dialogue dialogue2;
+    public Dialogue dialogue, dialogue2;
 
     void Awake() {
         if(isGoodOnly == true) {
@@ -26,18 +24,21 @@ public class DialogueTrigger : MonoBehaviour
             val = 2;
         }
         else {
-            val =  Random.Range(1, 3);
+            val = Random.Range(1, 3);
         }
 
-        if(val == 1)
+        if(val == 1) {
             for(int i = -range; i <= range; i++) 
                 for(int j = -range; j <= range; j++)
                     SetTileColour(color1, new Vector3Int(i,j,0), background);
+        }
 
-        if(val == 2)
+        if(val == 2) {
+            image.GetComponent<Image>().color = color3;
             for(int i = -range; i <= range; i++) 
                 for(int j = -range; j <= range; j++)
                     SetTileColour(color2, new Vector3Int(i,j,0), background);
+        }
                     
         if(hybrid == true) {
             for(int i = -range; i <= range; i++) 
@@ -51,6 +52,13 @@ public class DialogueTrigger : MonoBehaviour
         }        
     }
 
+    //-60.7, -2.3 - Room 1
+    //-53.99, -47.26 - Room 2
+    //-9.02, -47.26 - Room 3
+    //0,0 - Room 4
+    //-42.72, 33.78 - Room 5
+    //-83.3, 29.3 - Room 6
+
     public void TriggerDialogue() {
         if(val == 1) {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue, Color.white);
@@ -60,7 +68,6 @@ public class DialogueTrigger : MonoBehaviour
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue2, Color.red);
             //SetTileColour(Color.red, new Vector3Int(10,0,0), background);
         }
-
         button.SetActive(false);
     }
 

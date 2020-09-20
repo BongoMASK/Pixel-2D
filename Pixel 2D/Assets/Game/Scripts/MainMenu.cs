@@ -8,7 +8,7 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     private Text difficultyText;
-    public GameObject difficultyButton;
+    public GameObject difficultyButton, optionsCanvas, mainMenuCanvas;
 
     void Awake() {
         if(!Movement.difficult) {
@@ -23,8 +23,14 @@ public class MainMenu : MonoBehaviour
     public void PlayGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void Controls() {
+        SceneManager.LoadScene("Controls");
+    }
     public void Options() {
-        SceneManager.LoadScene("Options");
+        //SceneManager.LoadScene("Options");
+
+        optionsCanvas.SetActive(true);
+        mainMenuCanvas.SetActive(false);
         //Lmaoooo this has been empty since I made this game
         //add volume control, camera shake intensity, music, sounds, difficulty etc.
     }
@@ -52,6 +58,9 @@ public class MainMenu : MonoBehaviour
     }
     public void Claustrophobia() {
         SceneManager.LoadScene("Claustrophobia");
+    }
+    public void Code() {
+        SceneManager.LoadScene("Code");
     }
     public void Maze() {
         SceneManager.LoadScene("Maze");

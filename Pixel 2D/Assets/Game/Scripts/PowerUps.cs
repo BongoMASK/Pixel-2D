@@ -29,7 +29,7 @@ public class PowerUps : MonoBehaviour
 
         ClockRegen();
 
-        if(Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) {
+        if((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) /*&& Movement.start == true*/) {
             StartCoroutine(Sharingan());
         }
 
@@ -37,7 +37,7 @@ public class PowerUps : MonoBehaviour
             StartCoroutine(Disable());
         }
 
-        if(clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1) /*|| 
+        if((clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)) /*&& Movement.start == true*/ /*|| 
           Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)*/) {
             StopCoroutine(Disable());
             StopCoroutine(Sharingan());
