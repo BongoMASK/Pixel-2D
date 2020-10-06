@@ -12,10 +12,12 @@ public class EnemyCount : MonoBehaviour
     public GameObject finishText, healthText;
     public GameObject finishObject;
     public GameObject powerUpText;
+    public GameObject bulletText;
     Text score;
     Text time;
     Text finish;
     Text health;
+    Text bullet;
     public static Text powerUp;
     public Slider slider;
 
@@ -32,6 +34,7 @@ public class EnemyCount : MonoBehaviour
         finish = finishText.GetComponent<Text>();
         powerUp = powerUpText.GetComponent<Text>();
         health = healthText.GetComponent<Text>();
+        bullet = bulletText.GetComponent<Text>();
     }
     void Update()
     {
@@ -43,6 +46,7 @@ public class EnemyCount : MonoBehaviour
         time.text = clock.ToString();                   //placed in this order because this value updates last
         score.text = currentEnemyCount.ToString() + " / " + totalEnemyCount.ToString() + " Enemies Left"; 
         health.text = "Health: " + GameManager.health + " / " + GameManager.totalHealth;  
+        bullet.text = GameManager.bulletNo + " / " + GameManager.totalBullets;
 
         if(clock <= 0) {
             time.text = "0.000";

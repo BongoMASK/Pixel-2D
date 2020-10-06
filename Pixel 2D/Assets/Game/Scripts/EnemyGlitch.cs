@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyGlitch : MonoBehaviour
 {
     Vector2 positionOffset, enemyPos;
-    static Vector2 playerLastPosition;  //static variables have only 1 copy of themselves throughout the code
+    public static Vector2 playerLastPosition;  //static variables have only 1 copy of themselves throughout the code
     public GameObject enemy;
     GameObject player;
-    float time = 5;
+    public float time;
     Vector2 playerPos;
     bool glitch, isColliding;
     Animator animator;
-    //public GameObject particle;
+    //public GameObject afterImage;
     public ParticleSystem particle;
     public static bool isShoot;
 
@@ -61,7 +61,8 @@ public class EnemyGlitch : MonoBehaviour
     
     public IEnumerator setPosition() {
         Vector2 playerPos = player.transform.position;      //same as above
-        yield return new WaitForSeconds(0.25f);           
+        yield return new WaitForSeconds(time);
+        //afterImage.transform.position = playerLastPosition;
         playerLastPosition = playerPos;        //player.transform.position denotes current playerPosition, not 1 second ago
     }
 }

@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Level 1.unity
     guid: fd7af1384c904405d9818d874ebeaaa9
   - enabled: 1
+    path: Assets/Game/Scenes/stun.unity
+    guid: f97ab5ae37eee07418c2a439e28f729c
+  - enabled: 1
     path: Assets/Game/Scenes/Claustrophobia.unity
     guid: bbf35a57958a34c11b7166589af62c30
   - enabled: 1
@@ -33,14 +36,17 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Delete.unity
     guid: 7121fd0321a854b14a246e8d0abbef68
   - enabled: 1
+    path: Assets/Game/Scenes/BOSS.unity
+    guid: 1a5a27b8ba38658428d3fa7a6217a6b9
+  - enabled: 1
     path: Assets/Game/Scenes/Glitch.unity
     guid: c240c27bfbc894767be9b0eb0912cc1a
   - enabled: 1
-    path: Assets/Game/Scenes/Code.unity
-    guid: a6f46a70b98979f47a8576943f6e67d1
-  - enabled: 1
     path: Assets/Game/Scenes/Maze.unity
     guid: d0eb8df06b7497f43b42ef177d290b44
+  - enabled: 1
+    path: Assets/Game/Scenes/Code.unity
+    guid: a6f46a70b98979f47a8576943f6e67d1
   - enabled: 1
     path: Assets/Game/Scenes/Level 2.unity
     guid: 05d1d926f045045b3a2be54f5cac532d

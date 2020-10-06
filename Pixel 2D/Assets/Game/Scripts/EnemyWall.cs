@@ -39,21 +39,21 @@ public class EnemyWall : MonoBehaviour
     IEnumerator wallMovement() {
         while(1==1) {
             //Switch.isCollided = true;
-            float fallTime = Random.Range(time, time + 2);
+            //float fallTime = Random.Range(time, time + 2);
             if(horizontal == true) {
                 rb.AddForce(transform.right * -4 * thrust * rightLeft);
             }
             else {
                 rb.AddForce(transform.up * -4 * thrust * rightLeft);
             }
-            yield return new WaitForSeconds(fallTime);
+            yield return new WaitForSeconds(time);
             if(horizontal == true) {
                 rb.AddForce(transform.right * 4 * thrust * rightLeft);
             }
             else {
                 rb.AddForce(transform.up * thrust * 4 * rightLeft);
             }
-            yield return new WaitForSeconds(fallTime);
+            yield return new WaitForSeconds(time);
             
         }
     }

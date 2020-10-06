@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aaa859c656040c090f4bf486da6aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sloMoTime: 0.4
   slider: {fileID: 1250315580}
-  animator: {fileID: 580875531}
 --- !u!4 &151404618
 Transform:
   m_ObjectHideFlags: 0
@@ -848,12 +848,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d27102ad1127c4ba4830ec43f1372f00, type: 3}
---- !u!95 &580875531 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2477860498788463515, guid: d27102ad1127c4ba4830ec43f1372f00,
-    type: 3}
-  m_PrefabInstance: {fileID: 580875530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &644924573
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,7 +2158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254677611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.39, y: -7.59, z: -18.592613}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2184,6 +2178,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 7524937663740902491, guid: c0a188ef14b4c4e53b3ceeaa9108ca36, type: 3}
   waveText: {fileID: 890733172}
+  xPos1: -9
+  xPos2: -29
+  xPos3: 8
+  xPos4: -9
+  yPos1: 17
+  yPos2: 6
+  yPos3: 6
+  yPos4: -6
+  timeFixed: 10
+  boss: 0
 --- !u!1 &1439125222
 GameObject:
   m_ObjectHideFlags: 0

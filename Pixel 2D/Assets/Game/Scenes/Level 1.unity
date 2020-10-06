@@ -284,6 +284,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 325088602}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &66100062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2477860498788463489, guid: d27102ad1127c4ba4830ec43f1372f00,
+    type: 3}
+  m_PrefabInstance: {fileID: 2020142641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &66100067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66100062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c70d6aa0ec24048868bb5bd5d0da35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &142687175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -853,6 +871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (Moving) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929511165671516085, guid: ff9f7cc3b45bf4acbb031391fe474333,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9f7cc3b45bf4acbb031391fe474333, type: 3}
@@ -2577,8 +2600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aaa859c656040c090f4bf486da6aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sloMoTime: 0.4
   slider: {fileID: 1618091233}
-  animator: {fileID: 2020142642}
 --- !u!4 &882550919
 Transform:
   m_ObjectHideFlags: 0
@@ -4775,12 +4798,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d27102ad1127c4ba4830ec43f1372f00, type: 3}
---- !u!95 &2020142642 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2477860498788463515, guid: d27102ad1127c4ba4830ec43f1372f00,
-    type: 3}
-  m_PrefabInstance: {fileID: 2020142641}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2027965995
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,6 +4978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (Moving) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929511165671516085, guid: ff9f7cc3b45bf4acbb031391fe474333,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9f7cc3b45bf4acbb031391fe474333, type: 3}
@@ -5209,6 +5231,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
         type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
       propertyPath: dialogue2.name
       value: Computer
       objectReference: {fileID: 0}
@@ -5221,6 +5248,89 @@ PrefabInstance:
         type: 3}
       propertyPath: isGoodOnly
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: Hey! You're back from your vacation? Right.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 'Soo... uhh... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: In case you haven't noticed,
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: We were attacked by a virus.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: And your squad members, they are prisoners right now.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: So, you are going to have to help us out.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: Your powers of Slo-Mo have been given back to you. You can just press
+        'S' like you normally do.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[7]
+      value: Also, your bullets have been given back to you as well, press 'Space'
+        to shoot.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[8]
+      value: Just one reminder...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[9]
+      value: The virus is infecting me quite a bit...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[10]
+      value: So, you can at times expect the virus to take over.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[11]
+      value: Don't worry though! The virus will only make your job only a TINY LITTLE
+        BIT more harder for you...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[12]
+      value: So, you'll have to bear with the infected Computer at times.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[13]
+      value: Anyway, that was a nice Conversation. Go ahead now!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[14]
+      value: Good Luck
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278046654713915434, guid: f084099e7463919468d761fceb7e2c47,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[15]
+      value: '*Press ''S'' To Start*'
       objectReference: {fileID: 0}
     - target: {fileID: 1278046655104150550, guid: f084099e7463919468d761fceb7e2c47,
         type: 3}

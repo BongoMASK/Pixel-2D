@@ -13,10 +13,10 @@ public class CodeGenerator : MonoBehaviour
     public GameObject wall;
     bool isSame;
     public GameObject[] numberText;
-    public static Text[] number;
     
     void Start()
     {
+        arr2 = new int[6];
         wallScript = wall.GetComponent<EnemyWall>();
         roomPosition = new Vector2[] {
             new Vector2(-60.7f, -2.3f),
@@ -30,26 +30,12 @@ public class CodeGenerator : MonoBehaviour
         randomize(arr1, arr1.Length);
 
         placeTilemaps();
-        
-        /*
-        public static int[] arr2 = {0, 1, 2, 3, 4, 5};
-
-        void Start() {
-            for(int j = 0; j < 6; j++) {
-                number[j] = numberText[j].GetComponent<Text>();
-            }
-        }
-
-        void Update() {
-            number[i].text = arr2[i].ToString();
-            for(int i = 0; i < 6; i++) {
-                CodeGenerator.number[i].text = CodeGenerator.arr2[i].ToString();
-            }
-        }
-        */
     }
     
     void Update() {
+        for(int j = 0; j < 6; j++) {
+            numberText[j].GetComponent<Text>().text = arr2[j].ToString();            
+        }
         compareArray();
     }
 
@@ -97,8 +83,14 @@ public class CodeGenerator : MonoBehaviour
             if(isSame == true) {
                 Debug.Log("Correct code!");
                 wallScript.enabled = true;
+                for(int j = 0; j < 6; j++) {
+                    numberText[j].GetComponent<Text>().color = Color.green;            
+                }
             }
             else {
+                for(int j = 0; j < 6; j++) {
+                    numberText[j].GetComponent<Text>().color = Color.red;            
+                }
                 Debug.Log("Wrong code");
             }
             

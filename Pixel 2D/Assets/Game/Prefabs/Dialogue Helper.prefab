@@ -29,7 +29,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1278046655104150550}
+  m_Father: {fileID: 4323141604367117756}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -109,7 +109,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1278046655104150550}
+  m_Father: {fileID: 4323141604367117756}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -347,12 +347,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1278046654225137825}
-  m_Father: {fileID: 1278046655104150550}
-  m_RootOrder: 4
+  m_Father: {fileID: 4323141604367117756}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207, y: -215}
+  m_AnchoredPosition: {x: 0.00012207031, y: -215}
   m_SizeDelta: {x: 459.34778, y: 91.994484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1278046654713915439
@@ -458,11 +458,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be379fc22cba3ab4bbb730b71ec79258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 50
+  range: 61
   isGoodOnly: 0
   isBadOnly: 0
   hybrid: 0
-  button: {fileID: 1278046654713915432}
+  startButton: {fileID: 1278046654713915432}
+  nextButton: {fileID: 1278046655688597062}
   image: {fileID: 1278046655336900395}
   color1: {r: 0, g: 1, b: 0.22047544, a: 0.29411766}
   color2: {r: 0.9960785, g: 0, b: 0, a: 0.29411766}
@@ -471,31 +472,25 @@ MonoBehaviour:
   dialogue:
     name: Computer
     sentences:
-    - Oh! So, you're back from your vacation? Had a fun time? We have a bit of a
-      problem.
-    - 'Remember your squad? Yeah... they''re prisoners now. '
-    - How? Well, we were infected by a virus. And uhh, this entire computer is currently
-      filled with it. Funny, right?
-    - Anyway, I need you to do something for me. Kill the virus. Just kill those
-      red things, please! Ok?
-    - They are infecting my entire system. I feel like I'm gonna get corrupted any
-      moment.
-    - Anyway, your powers of Slo-mo have been returned to you now. Press 'S' like
-      you always do.
-    - Also, your bullets have been returned to you as well by pressing 'Space'.
-    - You NEED to complete this properly. Save your squad members.
-    - Good Luck.
+    - This part of the area is encrypted.
+    - So, this will be like a Maze-like structure for you.
+    - So, you can... very easily get lost.
+    - But, thats all right. You have a very good sense of direction...
+    - Or was that Disable?
+    - Anyway, just go ahead, you'll be fine I promise
+    - Good Luck!
   dialogue2:
     name: Computer
     sentences:
-    - Hello, there. I see that you are trying to take down my entire empire. Do you
-      really think i will let you do that?
-    - I want to see you gone...
-    - There is nothing here for you right now.
-    - I hope you know that very soon things are going to get painful.
-    - I remember, she used to say this.
-    - '"Good luck". Well, i guess she''s right because you''ll most definetly need
-      it.'
+    - Encrypted, huh. This place is almost entirely like a Maze...
+    - '!!! :0'
+    - So you've reached this place already?
+    - Thanks to these encrypted files it's taking me a bit of time to get things
+      done
+    - Well, what's the hurry...
+    - I cant possibly imagine you deleting my minions and getting through this Maze-like
+      place so easily before I finish.
+    - Well, do what you can... Good luck!
 --- !u!1 &1278046655104150548
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,11 +522,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1278046655336900394}
-  - {fileID: 1278046653911867515}
-  - {fileID: 1278046654200554884}
-  - {fileID: 1278046655688597081}
-  - {fileID: 1278046654713915435}
+  - {fileID: 4323141604367117756}
   m_Father: {fileID: 7135125258235681602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -755,13 +746,13 @@ MonoBehaviour:
   m_margin: {x: 0.45856655, y: 0.8792006, z: -0.40880102, w: 0.6223773}
   m_textInfo:
     textComponent: {fileID: 1278046655126382020}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -821,6 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492fef43946123947b5e48f938d8542b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueCanvas: {fileID: 4578324715121483885}
   dialogueText: {fileID: 1278046654200554886}
   nameText: {fileID: 1278046653911867513}
   animator: {fileID: 1278046655104150551}
@@ -849,11 +841,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278046655336900395}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1278046655104150550}
+  m_Father: {fileID: 4323141604367117756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -916,7 +908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1278046655688597081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -929,8 +921,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1278046655126382021}
-  m_Father: {fileID: 1278046655104150550}
-  m_RootOrder: 3
+  m_Father: {fileID: 4323141604367117756}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1060,3 +1052,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4578324715121483885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4323141604367117756}
+  m_Layer: 5
+  m_Name: Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4323141604367117756
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4578324715121483885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1278046655336900394}
+  - {fileID: 1278046653911867515}
+  - {fileID: 1278046654200554884}
+  - {fileID: 1278046654713915435}
+  - {fileID: 1278046655688597081}
+  m_Father: {fileID: 1278046655104150550}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

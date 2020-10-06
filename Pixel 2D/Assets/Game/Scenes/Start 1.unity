@@ -5935,6 +5935,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 770006230, guid: ec620be1c18b84d889136211a7c454cb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 147460339647573992, guid: ec620be1c18b84d889136211a7c454cb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5995,6 +5999,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2776200192375997780, guid: ec620be1c18b84d889136211a7c454cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 606
+      objectReference: {fileID: 0}
     - target: {fileID: 3939751005914031064, guid: ec620be1c18b84d889136211a7c454cb,
         type: 3}
       propertyPath: cheatUpgrades
@@ -6019,6 +6028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8776048727620241704, guid: ec620be1c18b84d889136211a7c454cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1337
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec620be1c18b84d889136211a7c454cb, type: 3}

@@ -30,9 +30,11 @@ public class ShootBullet : MonoBehaviour
         float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         direction.Normalize();
-        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
+        if((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && GameManager.bulletNo > 0) {
             EnemyGlitch.isShoot = true;
             shootBullet(direction, rotation);
+            GameManager.bulletNo = GameManager.bulletNo - 1;
+            Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
         }
     }
     void shootBullet(Vector2 direction, float rotation) {
@@ -62,6 +64,8 @@ public class ShootBullet : MonoBehaviour
             b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }
     }
+
+    
     /*void OnTriggerEnter2D(Collider2D col) {
         if(col.CompareTag("Enemy")) {
             GameManager.enemiesKilled = GameManager.enemiesKilled + 1;

@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
+    public float sloMoTime;
     GameObject playerCollision; 
     public static float clock, clockInit;        //supposed to be for the slider to show time remaining for sharingan
     public static bool sharingan = false;
     public Slider slider;
     EnemyMovement EnemyMovement;
-    public Animator animator;
+    Animator animator;
 
     //initially it was kept such that after 5 real time seconds time scale would go back to one
     //the game is actually kinda hard and this would just make it a bit easier for people to play
@@ -20,6 +21,7 @@ public class PowerUps : MonoBehaviour
         clockInit = clock;
         slider.maxValue = clockInit;
         playerCollision = GameObject.FindGameObjectWithTag("Respawn");
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     void Update() {
@@ -51,7 +53,7 @@ public class PowerUps : MonoBehaviour
     //Slow down time
     //other name ideas - Kronos, Slo - mo
     IEnumerator Sharingan() {
-        Time.timeScale = 0.6f;
+        Time.timeScale = sloMoTime;
         int number = (int) (clock * 1.5f) + 1;
         EnemyCount.powerUp.text = "Slo-Mo " + number.ToString();
         clock -= Time.deltaTime;

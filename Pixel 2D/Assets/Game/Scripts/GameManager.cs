@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     public static int data;
     public static int deaths;
     public static int enemiesKilled;
-    public float secondsPast = 1f;
-    public static int health;
+    public float secondsPast = 1f, secondsPast2;
+    public static int health, bulletNo;
     public GameObject upgradeCanvas, cheatUpgrades;
     public static GameObject canvas;
     bool isUpgrade = false, godMode = false;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     //Stats
     public static int totalHealth = 25;
+    public static int totalBullets = 10;
     public static int healthData = 100;
     public static int penetration;
     public static int penetrationData;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         healthRegen();
+        bulletRegen();
 
         if(Input.GetKeyDown(KeyCode.U)) {
             if(!isUpgrade) {
@@ -100,6 +102,13 @@ public class GameManager : MonoBehaviour
             secondsPast = 1f;
         }
         secondsPast -= Time.deltaTime;
+    }
+    void bulletRegen() {
+        if(secondsPast2 <= 0 && bulletNo < totalBullets) {
+            bulletNo = bulletNo + 1;
+            secondsPast2 = 2f;
+        }
+        secondsPast2 -= Time.deltaTime;
     }
     public void healthUpgrade() {
         if(data >= healthData)  {

@@ -12,22 +12,32 @@ public class Enemy : MonoBehaviour
     public float fireCountdown = 0.4f;
     public GameObject shooter;
     bool isShoot;
+    public bool boss;
+    Animator animator;
 
     void Awake() {
         isShoot = false;
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
     void Update() {
-        //EnemyMovement.animator.SetBool("isShoot", isShoot);
+        //animator.SetBool("isShoot", isShoot);
         difference = player.transform.position - transform.position;
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;        
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation - 15);
         difference.Normalize();      //normalize is used to not increase speed by certain calculation errors
-        if(fireCountdown <= -0.4f) {  //basically, normalize is x/|x|.
+                                        //basically, normalize is x/|x|.
+        
+        if(fireCountdown <= -0.4f) {  
             shootBullet(difference, rotation);
-            fireCountdown = 2f;
+            if(boss == true) {
+                fireCountdown = 0.6f;
+            }
+            else {
+                fireCountdown = 2f;
+            }
         }
-        if(fireCountdown <= 0 && fireCountdown >= -0.4) {
+        if(fireCountdown <= 1.5f && fireCountdown >= -0.4) {
             isShoot = true;
         }
         else {

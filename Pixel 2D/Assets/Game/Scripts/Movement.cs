@@ -6,11 +6,11 @@ using EZCameraShake;
 
 public class Movement : MonoBehaviour
 {
-    public static float playerSpeed = 725f;
+    public static float playerSpeed;
     public float speed, time;
     public GameObject lostCanvas, sr, spriteLight, damagePoints;
     public static bool restartBool, difficult = false, isHit = false, start;
-    int health, data, MoneyDropped, powerUpTime;
+    int health, data, MoneyDropped, powerUpTime, bullets;
     int healthData, moneyDroppedData, powerUpTimeData, value;
     private Rigidbody2D rb;
     private Vector2 moveVelocity4, mousePos, playerPos;
@@ -20,11 +20,13 @@ public class Movement : MonoBehaviour
 
     void Awake() {
         health = GameManager.totalHealth;
+        bullets = GameManager.totalBullets;
         data = GameManager.data;
 
         MoneyDropped = (int) GameManager.MoneyDropped;
         powerUpTime = GameManager.powerUpTime;
         GameManager.health = GameManager.totalHealth;
+        GameManager.bulletNo = GameManager.totalBullets;
 
         healthData = GameManager.healthData;
         moneyDroppedData = GameManager.moneyDroppedData;
@@ -37,6 +39,7 @@ public class Movement : MonoBehaviour
     }
 
     void Start() {
+        playerSpeed = speed;
         Upgrades.isTripleShoot = false;
         isHit = false;
         //speed = 0f;
@@ -82,6 +85,12 @@ public class Movement : MonoBehaviour
         if(col.CompareTag("Bullet")) {
             StartCoroutine(hit(26));   
         }
+        if(col.CompareTag("StunBullet")) {
+            StartCoroutine(stun());
+        }
+        if(col.CompareTag("BossBullet")) {
+            StartCoroutine(hit(50));   
+        }
         if(col.CompareTag("Wall")) {
             StartCoroutine(Explosion());
             StartCoroutine(damagePoint(GameManager.totalHealth, Color.red, "-"));
@@ -111,12 +120,21 @@ public class Movement : MonoBehaviour
         Destroy(d);        
     }
 
+    IEnumerator stun() {
+        speed = 0;
+        yield return new WaitForSeconds(3);
+        speed = playerSpeed;
+    }
+
     void random() {
         if(GameManager.health < GameManager.totalHealth * 0.75) {
             value = Random.Range(1,7);
         }
         if(PowerUps.clock < PowerUps.clockInit * 0.5) {
             value = Random.Range(-1,5);
+        }
+        if(GameManager.bulletNo < GameManager.totalBullets * 0.5f) {
+            value = Random.Range(6, 11);
         }
         else {
             value = Random.Range(2,5);
@@ -133,6 +151,10 @@ public class Movement : MonoBehaviour
         if(value >= -1 && value < 2) {
             Upgrades.PowerRegen();
             StartCoroutine(damagePoint(0, Color.white, "Power Regenerated"));
+        }
+        if(value >= 7 && value < 11) {
+            Upgrades.BulletRegen();
+            StartCoroutine(damagePoint(0, Color.white, "Bullets Restored"));
         }
     }
 
@@ -178,7 +200,6 @@ public class Movement : MonoBehaviour
     IEnumerator Explosion() {
         GameManager.health = 0;
         particle.Play();
-
 
         spriteLight.SetActive(false);
         sr.SetActive(false);

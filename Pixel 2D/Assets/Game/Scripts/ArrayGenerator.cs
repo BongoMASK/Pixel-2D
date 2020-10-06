@@ -57,9 +57,7 @@ public class ArrayGenerator : MonoBehaviour
     void addToArray() {
         particle.Play();
         CodeGenerator.arr2[CodeGenerator.i] = num;
-        for(int i = 0; i < 6; i++) {
-            CodeGenerator.number[i].text = CodeGenerator.arr2[i].ToString();
-        }
+        
         for(int j = 0; j < CodeGenerator.arr2.Length; j++) {
             Debug.Log("Array Added: " + CodeGenerator.arr2[j] + " ");
         }
@@ -70,14 +68,15 @@ public class ArrayGenerator : MonoBehaviour
     void removeFromArray() {
         if(CodeGenerator.arr2[CodeGenerator.i - 1] == num) {
             particle.Stop();
-            //CodeGenerator.number[num].text = "0";
-            for(int j = 0; j < CodeGenerator.arr2.Length; j++) {
+            CodeGenerator.arr2[CodeGenerator.i - 1] = 0;
+            CodeGenerator.i--;
+            /*for(int j = 0; j < CodeGenerator.arr2.Length; j++) {
                 if(CodeGenerator.arr2[j] == num) {
                     Debug.Log("Before" + CodeGenerator.i);
-                    CodeGenerator.i--;
+                    //CodeGenerator.i--;
                     Debug.Log("After" + CodeGenerator.i);
                 }
-            }
+            }*/
         }
         else {
             Debug.Log("wrong number");

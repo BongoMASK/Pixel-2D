@@ -5,21 +5,22 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
+    public GameObject dialogueCanvas;
     private Queue<string> sentences;
     public Text dialogueText;
     public Text nameText;
     public Animator animator;
-    bool isOpen = true;
+    public static bool isOpen = true;
 
     void Start()
     {
         sentences = new Queue<string>();
     }
 
+
     public void StartDialogue(Dialogue dialogue, Color color) {
         isOpen = true;
-        animator.SetBool("isOpen", isOpen);
+        //animator.SetBool("isOpen", isOpen);
         //Debug.Log("starting convo with " + dialogue.name);
         nameText.text = dialogue.name;
         nameText.color = color;
@@ -53,8 +54,11 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void EndDialogue() {
-        isOpen = false;
+        //dialogueCanvas.SetActive(false);
+        //isOpen = false;
         Debug.Log("End of conversation");
-        animator.SetBool("isOpen", isOpen);
+        dialogueCanvas.SetActive(false);
+        levelStart.playerCollision.SetActive(true);
+        //animator.SetBool("isOpen", isOpen);
     }
 }

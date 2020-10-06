@@ -8,16 +8,28 @@ public class Upgrades : MonoBehaviour
 
     public static int value;
 
-    /*public static void Random() {
-        value = Random.Range(1,3);
-        if(value == 1) {
+    /*public static void random() {
+        if(GameManager.health < GameManager.totalHealth * 0.75) {
+            value = Random.Range(1,7);
+        }
+        if(PowerUps.clock < PowerUps.clockInit * 0.5) {
+            value = Random.Range(-1,5);
+        }
+        else {
+            value = Random.Range(2,5);
+        }
+
+        if(value >= 2 && value <= 3) {
             StartCoroutine(TripleShoot());
+            StartCoroutine(Movement.damagePoint(0, Color.white, "Triple Shoot"));
         }
-        if(value == 2) {
-           HealthRegen();
+        if(value < 7 && value > 3) {
+            HealthRegen();
+            StartCoroutine(damagePoint(0, Color.white, "+25% Health"));
         }
-        if(value == 3) {
+        if(value >= -1 && value < 2) {
             PowerRegen();
+            StartCoroutine(damagePoint(0, Color.white, "Power Regenerated"));
         }
     }*/
 
@@ -35,6 +47,9 @@ public class Upgrades : MonoBehaviour
     public static void PowerRegen() {
         PowerUps.clock = PowerUps.clockInit;
         //Replenishes power bar
+    }
+    public static void BulletRegen() {
+        GameManager.bulletNo = GameManager.totalBullets;
     }
 
 }

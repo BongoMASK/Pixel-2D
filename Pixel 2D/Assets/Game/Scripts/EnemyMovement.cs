@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     GameObject player;
     Vector2 moveVelocity, playerPos;
+    public float enemySpeed1;
     public static float enemySpeed = 110;
     Rigidbody2D rb;
     public bool isTrigger;
@@ -20,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        enemySpeed = 110;
+        enemySpeed = enemySpeed1;
         rb = GetComponent<Rigidbody2D>();
     }
 

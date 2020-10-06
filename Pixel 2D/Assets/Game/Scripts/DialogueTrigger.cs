@@ -11,7 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     public int range = 50;
     public bool isGoodOnly, isBadOnly;
     public bool hybrid;
-    public GameObject button, image;
+    public GameObject startButton, nextButton, image;
     public Color color1, color2, color3;
     public Tilemap background;
     public Dialogue dialogue, dialogue2;
@@ -68,7 +68,8 @@ public class DialogueTrigger : MonoBehaviour
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue2, Color.red);
             //SetTileColour(Color.red, new Vector3Int(10,0,0), background);
         }
-        button.SetActive(false);
+        startButton.SetActive(false);
+        nextButton.SetActive(true);
     }
 
     private void SetTileColour(Color colour, Vector3Int position, Tilemap tilemap) {

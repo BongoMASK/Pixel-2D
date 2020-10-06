@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d006f827137194aac836396286344b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed1: 110
   isTrigger: 0
   animator: {fileID: 1397059966564157013}
 --- !u!50 &3540366141366362526
