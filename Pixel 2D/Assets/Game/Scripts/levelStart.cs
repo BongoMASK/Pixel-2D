@@ -27,9 +27,9 @@ public class levelStart : MonoBehaviour
         if(col.CompareTag("Player") && isStarted != true) {
             Time.timeScale = 0;
             convoCanvas.SetActive(true);
+            StartCoroutine(DialogueTrigger());
             isStarted = true;
             bossSlider.SetActive(true);
-            StartCoroutine(DialogueTrigger());
             //playerCollision.SetActive(true);
         }
     }

@@ -16,6 +16,8 @@ TagManager:
   - Triple Shoot
   - BossBullet
   - StunBullet
+  - UpgradeCanvas
+  - TransitionCanvas
   layers:
   - Default
   - TransparentFX

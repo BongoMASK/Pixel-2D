@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         isUpgrade = false;
     }
-    void upgradeMenu () {
+    public void upgradeMenu () {
         upgradeCanvas.SetActive(true);
         Time.timeScale = 0;
         isUpgrade = true;

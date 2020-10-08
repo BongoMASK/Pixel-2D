@@ -68,6 +68,12 @@ public class MainMenu : MonoBehaviour
     public void Delete() {
         SceneManager.LoadScene("Delete");
     }
+    public void Stun() {
+        SceneManager.LoadScene("stun");
+    }
+    public void Boss() {
+        SceneManager.LoadScene("BOSS");
+    }
     public void Survive() {
         SceneManager.LoadScene("Survive");
     }
