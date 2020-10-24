@@ -38,7 +38,6 @@ public class LevelControl : MonoBehaviour
                 
             }
         }
-
     }
 
     public void LoadNextLevel() {

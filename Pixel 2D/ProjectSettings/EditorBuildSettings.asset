@@ -39,8 +39,17 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Level 1.unity
     guid: fd7af1384c904405d9818d874ebeaaa9
   - enabled: 1
+    path: Assets/Game/Scenes/newEasyLevel.unity
+    guid: f2857ff1cd1e01549a9b441fcab4b63c
+  - enabled: 1
     path: Assets/Game/Scenes/Claustrophobia.unity
     guid: bbf35a57958a34c11b7166589af62c30
+  - enabled: 1
+    path: Assets/Game/Scenes/stun.unity
+    guid: f97ab5ae37eee07418c2a439e28f729c
+  - enabled: 1
+    path: Assets/Game/Scenes/stun2.unity
+    guid: e53605605893ccf419c1be9fe7a8607e
   - enabled: 1
     path: Assets/Game/Scenes/Survive.unity
     guid: 9571a422065a1437093e9054cd29638e
@@ -54,8 +63,8 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/BOSS.unity
     guid: 1a5a27b8ba38658428d3fa7a6217a6b9
   - enabled: 1
-    path: Assets/Game/Scenes/stun.unity
-    guid: f97ab5ae37eee07418c2a439e28f729c
+    path: Assets/Game/Scenes/Glitch testing.unity
+    guid: 7b16a69cb64515743baa53a302adb38f
   - enabled: 1
     path: Assets/Game/Scenes/Glitch.unity
     guid: c240c27bfbc894767be9b0eb0912cc1a

@@ -10207,7 +10207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aaa859c656040c090f4bf486da6aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sloMoTime: 0
+  sloMoTime: 0.4
   slider: {fileID: 563994010}
 --- !u!4 &1004409643
 Transform:

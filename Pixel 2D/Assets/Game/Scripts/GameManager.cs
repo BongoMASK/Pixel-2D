@@ -22,12 +22,12 @@ public class GameManager : MonoBehaviour
     public GameObject moneyDroppedDataText, powerUpTimeDataText, dataText, cheatMoneyText, cheatHealthText;
 
     //Stats
-    public static int totalHealth = 25;
+    public static int totalHealth = 50;
     public static int totalBullets = 10;
     public static int healthData = 100;
     public static int penetration;
     public static int penetrationData;
-    public static float MoneyDropped = 20;
+    public static float MoneyDropped = 10;
     public static int moneyDroppedData = 250;
     public static int powerUpTime = 2;
     public static int powerUpTimeData = 175;
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
     public void healthUpgrade() {
         if(data >= healthData)  {
             data = data - healthData;
-            totalHealth = totalHealth + 25;
+            totalHealth = totalHealth + 20;
             health = health + 25;
             healthData = healthData * 2;
         }

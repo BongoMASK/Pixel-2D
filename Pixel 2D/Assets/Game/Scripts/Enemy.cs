@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
     }
     void Update() {
-        //animator.SetBool("isShoot", isShoot);
+        animator.SetBool("isShoot", isShoot);
         difference = player.transform.position - transform.position;
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;        
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation - 15);

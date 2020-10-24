@@ -62,6 +62,9 @@ public class MainMenu : MonoBehaviour
     public void Code() {
         SceneManager.LoadScene("Code");
     }
+    public void skip() {
+        SceneManager.LoadScene("LevelSelect");
+    }
     public void Maze() {
         SceneManager.LoadScene("Maze");
     }

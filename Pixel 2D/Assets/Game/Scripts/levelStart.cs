@@ -11,6 +11,7 @@ public class levelStart : MonoBehaviour
 
     void Start()
     {
+        isStarted = false;
         playerCollision = GameObject.FindGameObjectWithTag("Respawn");
         //playerCollision.SetActive(false);
         spawnGameObject.SetActive(false);
@@ -19,7 +20,7 @@ public class levelStart : MonoBehaviour
 
     void Update()
     {
-        if(EnemyCollisions.bossIsDead == true) {
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0) {
             finish.SetActive(true);  
         }
     }
