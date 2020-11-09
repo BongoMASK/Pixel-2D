@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class ShootBullet : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject player;
     public GameObject shootingPoint;
-    public float bulletSpeed = 30.0f;
+    public float bulletSpeed = 30.0f, fireCountdown;
     int enemiesKilled;
     Animator animator;
     bool isShoot = false;
@@ -15,28 +16,48 @@ public class ShootBullet : MonoBehaviour
     void Awake() {
         animator = GetComponent<Animator>();
     }
-    void Update()
-    {
+    void Update() {
         animator.SetBool("isShoot", isShoot);
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
 
-        if(Movement.restartBool) {
+        if (Movement.restartBool) {
             mousePos = new Vector2(0, 0);
         }
 
         //Vector2 direction = new Vector2 (1, 0);
         Vector2 direction = mousePos - playerPos;
+
         float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
         direction.Normalize();
-        if((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && GameManager.bulletNo > 0) {
+        
+        //insane bullet amount
+        if((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && GameManager.bulletNo > 0) {  //bulletShoot
+            EnemyGlitch.isShoot = true;
+            if (fireCountdown <= 0f) {
+                shootBullet(direction, rotation);
+                CameraShaker.Instance.ShakeOnce(1f, 10f, 0.1f, 0.5f);
+                GameManager.bulletNo = GameManager.bulletNo - 1;
+                //Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
+                fireCountdown = 0.1f;
+            }
+
+            //shootBullet(direction, rotation);
+            
+        }
+        fireCountdown -= Time.deltaTime;
+/*
+        //lesser bullets
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && GameManager.bulletNo > 0) {  //bulletShoot
             EnemyGlitch.isShoot = true;
             shootBullet(direction, rotation);
+            //CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
             GameManager.bulletNo = GameManager.bulletNo - 1;
-            Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
-        }
+            //Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
+        }*/
     }
+
     void shootBullet(Vector2 direction, float rotation) {
         //yield return new WaitForSeconds(time);
         Vector3 offset = new Vector3(0, 1, 0);

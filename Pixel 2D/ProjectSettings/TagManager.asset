@@ -18,6 +18,7 @@ TagManager:
   - StunBullet
   - UpgradeCanvas
   - TransitionCanvas
+  - Protect
   layers:
   - Default
   - TransparentFX

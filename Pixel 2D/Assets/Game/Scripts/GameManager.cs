@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     //Stats
     public static int totalHealth = 50;
-    public static int totalBullets = 10;
+    public static int totalBullets = 120;
     public static int healthData = 100;
     public static int penetration;
     public static int penetrationData;

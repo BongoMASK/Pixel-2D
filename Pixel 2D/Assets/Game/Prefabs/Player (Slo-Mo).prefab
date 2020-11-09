@@ -410,15 +410,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4998515048647072805}
-  - component: {fileID: 6546097580135349494}
   - component: {fileID: 1665241852919876023}
+  - component: {fileID: 4454466491358396866}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: PlayerProtect
+  m_Name: ProtectRing
+  m_TagString: Protect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4998515048647072805
 Transform:
   m_ObjectHideFlags: 0
@@ -427,28 +427,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104588728891944972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -0.26, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1.5}
   m_Children: []
   m_Father: {fileID: 2477860498788463516}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &6546097580135349494
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104588728891944972}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.008956274, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.8165964
 --- !u!212 &1665241852919876023
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -488,7 +472,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9e6d37c486d9245d8b22cd9bd78000d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afca27a01dc5dcc448d04710c7835b31, type: 3}
   m_Color: {r: 0.754717, g: 0.13171947, b: 0.65677357, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -499,6 +483,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &4454466491358396866
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104588728891944972}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0356075, y: -0.037981194}
+  serializedVersion: 2
+  m_Radius: 0.71882373
 --- !u!1 &2388356048330362160
 GameObject:
   m_ObjectHideFlags: 0

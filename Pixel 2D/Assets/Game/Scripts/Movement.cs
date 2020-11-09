@@ -207,8 +207,8 @@ public class Movement : MonoBehaviour
         speed = 0;
         restartBool = true;
         isHit = true;
-        CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
-        Time.timeScale = 0.2f;
+        CameraShaker.Instance.ShakeOnce(3f, 20f, 0.1f, 1f);
+         Time.timeScale = 0.2f;
 
         yield return new WaitForSeconds(0.2f);
         GameLost();       

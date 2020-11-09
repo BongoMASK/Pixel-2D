@@ -76,7 +76,7 @@ public class CodeGenerator : MonoBehaviour
                     isSame = true;
                 }
                 else {
-                    isSame = false;
+                    isSame = false; 
                 }
             }
 

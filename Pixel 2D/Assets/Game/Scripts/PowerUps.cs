@@ -12,6 +12,7 @@ public class PowerUps : MonoBehaviour
     public Slider slider;
     EnemyMovement EnemyMovement;
     Animator animator;
+    public GameObject protectRing;
 
     //initially it was kept such that after 5 real time seconds time scale would go back to one
     //the game is actually kinda hard and this would just make it a bit easier for people to play
@@ -22,6 +23,9 @@ public class PowerUps : MonoBehaviour
         slider.maxValue = clockInit;
         playerCollision = GameObject.FindGameObjectWithTag("Respawn");
         animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        protectRing = GameObject.FindGameObjectWithTag("Protect");
+
+        protectRing.SetActive(false);
     }
 
     void Update() {
@@ -39,7 +43,11 @@ public class PowerUps : MonoBehaviour
             StartCoroutine(Disable());
         }
 
-        if((clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)) /*&& Movement.start == true*/ /*|| 
+        if (Input.GetKeyDown(KeyCode.A)) {
+            StartCoroutine(Protect());
+        }
+
+        if ((clock <= 0 || Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)) /*&& Movement.start == true*/ /*|| 
           Input.GetKeyUp(KeyCode.D) || Input.GetMouseButtonUp(2)*/) {
             StopCoroutine(Disable());
             StopCoroutine(Sharingan());
@@ -82,6 +90,13 @@ public class PowerUps : MonoBehaviour
             }
             EnemyMovement.enemySpeed = 110;
         }
+    }
+
+    IEnumerator Protect() {
+        protectRing.SetActive(true);
+
+        yield return new WaitForSeconds(10f);
+        protectRing.SetActive(false);
     }
 
     //Main Idea - make certain enemies good, makes other enemies target that enemy

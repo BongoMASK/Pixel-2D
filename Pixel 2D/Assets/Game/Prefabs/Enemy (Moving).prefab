@@ -643,6 +643,7 @@ MonoBehaviour:
   bulletSpeed: 15
   fireCountdown: 0.4
   shooter: {fileID: 3781507620259432696}
+  boss: 0
 --- !u!114 &5294764272266070877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,11 +772,13 @@ MonoBehaviour:
   spriteLight: {fileID: 3781507620259432696}
   dataPoints: {fileID: 6995098936312598402, guid: 1aef93618678849e3819107d3912ec55,
     type: 3}
-  damagePoints: {fileID: 0}
   glitch: 0
   boss: 0
-  bossHealth: 0
-  damage: 0
+  bossHealth: 3
+  damage: 1
+  bossHealth2: 0
+  newPos: {x: 0, y: 0}
+  slider: {fileID: 0}
 --- !u!95 &5497200766904402016
 Animator:
   serializedVersion: 3

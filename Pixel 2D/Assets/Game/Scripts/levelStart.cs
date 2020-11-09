@@ -18,12 +18,15 @@ public class levelStart : MonoBehaviour
         //enemyCollisions = boss.GetComponent<EnemyCollisions>();
     }
 
+    
+
     void Update()
     {
         if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0) {
             finish.SetActive(true);  
         }
     }
+
     void OnTriggerExit2D(Collider2D col) {
         if(col.CompareTag("Player") && isStarted != true) {
             Time.timeScale = 0;
@@ -34,6 +37,7 @@ public class levelStart : MonoBehaviour
             //playerCollision.SetActive(true);
         }
     }
+
     IEnumerator DialogueTrigger() {
         FindObjectOfType<DialogueTrigger>().TriggerDialogue();
         yield return new WaitForSeconds(0.2f);

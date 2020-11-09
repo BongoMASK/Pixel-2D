@@ -69,8 +69,8 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Maze");
     }
     public void Delete() {
-        SceneManager.LoadScene("Delete");
-    }
+        SceneManager.LoadScene("DeleteTesting");
+    }   
     public void Stun() {
         SceneManager.LoadScene("stun");
     }

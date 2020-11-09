@@ -51,6 +51,9 @@ public class DialogueTrigger : MonoBehaviour
                 }
         }        
     }
+    void Start() {
+        TriggerDialogue();
+    }
 
     //-60.7, -2.3 - Room 1
     //-53.99, -47.26 - Room 2
