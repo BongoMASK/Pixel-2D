@@ -33,7 +33,7 @@ public class ShootBullet : MonoBehaviour
         direction.Normalize();
         
         //insane bullet amount
-        if((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && GameManager.bulletNo > 0) {  //bulletShoot
+        /*if((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && GameManager.bulletNo > 0) {  //bulletShoot
             EnemyGlitch.isShoot = true;
             if (fireCountdown <= 0f) {
                 shootBullet(direction, rotation);
@@ -46,19 +46,30 @@ public class ShootBullet : MonoBehaviour
             //shootBullet(direction, rotation);
             
         }
-        fireCountdown -= Time.deltaTime;
-/*
+        fireCountdown -= Time.deltaTime;*/
+
         //lesser bullets
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && GameManager.bulletNo > 0) {  //bulletShoot
             EnemyGlitch.isShoot = true;
-            shootBullet(direction, rotation);
+            shootBullet(direction, rotation, 0.25f);
             //CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
             GameManager.bulletNo = GameManager.bulletNo - 1;
             //Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
-        }*/
+        }
+
+        else if(Input.GetKey(KeyCode.Space)) {
+            EnemyGlitch.isShoot = true;
+            float powerLevel = 0f;
+            powerLevel += Time.deltaTime;
+            float scaleSize = powerLevel / 10;
+            shootBullet(direction, rotation, scaleSize);
+            //CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
+            GameManager.bulletNo = GameManager.bulletNo - 1;
+            //Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
+        }
     }
 
-    void shootBullet(Vector2 direction, float rotation) {
+    void shootBullet(Vector2 direction, float rotation, float scaleSize) {
         //yield return new WaitForSeconds(time);
         Vector3 offset = new Vector3(0, 1, 0);
 
@@ -81,6 +92,7 @@ public class ShootBullet : MonoBehaviour
         else {
             GameObject b = Instantiate(bullet) as GameObject;
             b.transform.position = shootingPoint.transform.position;
+            b.transform.localScale = new Vector2(scaleSize, scaleSize);
             b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation);
             b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }

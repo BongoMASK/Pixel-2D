@@ -33,12 +33,16 @@ public class EnemyCollisions : MonoBehaviour
     }
 
     void Start() {
-        bossHealth2 = bossHealth;
-        slider.maxValue = bossHealth;
+        if (boss) {
+            bossHealth2 = bossHealth;
+            slider.maxValue = bossHealth;
+        }
     }
 
     void Update() {
-        slider.value = bossHealth;
+        if (boss) {
+            slider.value = bossHealth;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
