@@ -50,23 +50,27 @@ public class ShootBullet : MonoBehaviour
 
         //lesser bullets
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && GameManager.bulletNo > 0) {  //bulletShoot
+            
             EnemyGlitch.isShoot = true;
             shootBullet(direction, rotation, 0.25f);
+
             //CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
             GameManager.bulletNo = GameManager.bulletNo - 1;
-            //Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
         }
 
-        else if(Input.GetKey(KeyCode.Space)) {
+        /*else if(Input.GetKey(KeyCode.Space)) {
             EnemyGlitch.isShoot = true;
             float powerLevel = 0f;
             powerLevel += Time.deltaTime;
+
             float scaleSize = powerLevel / 10;
+            Debug.Log("PowerLevel: " + powerLevel + "ScaleSize: " + scaleSize);
+
             shootBullet(direction, rotation, scaleSize);
+
             //CameraShaker.Instance.ShakeOnce(1f, 20f, 0.1f, 1f);
             GameManager.bulletNo = GameManager.bulletNo - 1;
-            //Debug.Log("Bullets: " + GameManager.bulletNo + "/" + GameManager.totalBullets + " left");
-        }
+        }*/
     }
 
     void shootBullet(Vector2 direction, float rotation, float scaleSize) {

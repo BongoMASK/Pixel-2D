@@ -8,22 +8,24 @@ public class Pause : MonoBehaviour
 {
     public static bool isPaused = false;
     public static GameObject Canvas;
-    public GameObject pauseCanvas;
-    public GameObject optionCanvas;
-    public GameObject deathsText;
-    public GameObject dataLostText;
+
+    public GameObject pauseCanvas, optionCanvas, deathsText, dataLostText;
 
     int dataInit, dataCurrent;
 
-    Text death;
-    Text dataLost;
+    Text death, dataLost;
 
     void Start() {
         Canvas = pauseCanvas;
         dataInit = GameManager.data;
-        
-        death = deathsText.GetComponent<Text>();    
-        dataLost = dataLostText.GetComponent<Text>();            
+
+        if (deathsText != null) {
+            death = deathsText.GetComponent<Text>();
+        }
+
+        if (dataLostText != null) {
+            dataLost = dataLostText.GetComponent<Text>();
+        }
     }
 
     void Update()
@@ -42,24 +44,30 @@ public class Pause : MonoBehaviour
     }
 
     void DataLostCount() {
-        dataLost.text = (Movement.dataFinal - dataInit).ToString();
+        if (dataLostText != null) {
+            dataLost.text = (Movement.dataFinal - dataInit).ToString();
+        }
     }
 
     public void DeathCount() {
-        death.text = GameManager.deaths.ToString();
+        if (deathsText != null) {
+            death.text = GameManager.deaths.ToString();
+        }
     }
 
     public void GameResume() {
         optionCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
         GameManager.canvas.SetActive(false);
+
         Time.timeScale = 1f;
         isPaused = false;
     }
 
     public void GamePause() {
         optionCanvas.SetActive(false);
-        pauseCanvas.SetActive(true);        
+        pauseCanvas.SetActive(true); 
+        
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -83,9 +91,10 @@ public class Pause : MonoBehaviour
     }
 
     public void Options() {
-        Time.timeScale = 0f;
         optionCanvas.SetActive(true);
         pauseCanvas.SetActive(false);
+
+        Time.timeScale = 0f;
         isPaused = true;
     }
 }

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class EnemyGlitch : MonoBehaviour
 {
-    Vector2 positionOffset, enemyPos;
+    Vector2 positionOffset, enemyPos, playerPos;
     public static Vector2 playerLastPosition;  //static variables have only 1 copy of themselves throughout the code
+
     public GameObject enemy;
     GameObject player;
+    
     public float time;
-    Vector2 playerPos;
+    
     bool glitch, isColliding;
-    Animator animator;
-    //public GameObject afterImage;
-    public ParticleSystem particle;
     public static bool isShoot;
+    
+    Animator animator;
+    public ParticleSystem particle;
+    //public GameObject afterImage;
 
     void Awake()
     {
@@ -25,10 +28,14 @@ public class EnemyGlitch : MonoBehaviour
 
     void Update()
     {
-        animator.SetBool("glitch", glitch);
-        
-        StartCoroutine(setPosition());
-        transform.position = enemy.transform.position;
+        if (animator != null) {
+            animator.SetBool("glitch", glitch);
+        }
+
+        if (enemy != null) {
+            StartCoroutine(setPosition());
+            transform.position = enemy.transform.position;
+        }
 
         //playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         //enemyPos = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
@@ -40,7 +47,9 @@ public class EnemyGlitch : MonoBehaviour
             StartCoroutine(executePositionChange(1.5f));
         }*/
         if(col.CompareTag("PlayerBullet")) {
-            StartCoroutine(executePositionChange(0f));
+            if (enemy != null) {
+                StartCoroutine(executePositionChange(0f));
+            }
         }
     }
 

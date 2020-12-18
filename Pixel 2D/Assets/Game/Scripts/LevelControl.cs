@@ -21,8 +21,12 @@ public class LevelControl : MonoBehaviour
         if(cutscene == true) {
             Time.timeScale = 1f;
         }
-        transition.SetBool("cutscene", cutscene);
-        transition.SetBool("finish", finish);
+
+        if (transition != null) {
+            transition.SetBool("cutscene", cutscene);
+            transition.SetBool("finish", finish);
+        }
+
         if(cutscene == true && Input.anyKey) {
             LoadNextLevel();
         }
